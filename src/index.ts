@@ -37,14 +37,27 @@ export function sumOfEvenDigits(number: number): number {
     return result;
 }
 
-export function productOfOddDigits(number: number) {
+export function productOfOddDigits(number: number): number {
     let result: number = 1;
+    let oddDigitExists = false;
     do {
         const digit: number = number % 10;
         if (digit % 2 === 1) {
+            oddDigitExists = true;
             result *= digit;
         }
         number = Math.floor(number / 10);
     } while (number > 0);
-    return result === 1 ? 0 : result;
+    return oddDigitExists ? result : 0;
+}
+
+export function reverseNumber(number: number): number {
+    let result: number = 0;
+    do {
+        const digit: number = number % 10;
+        result += digit;
+        number = Math.floor(number / 10);
+        result *= 10;
+    } while (number > 0);
+    return result / 10;
 }

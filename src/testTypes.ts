@@ -8,9 +8,13 @@ export type SumOfOppositesIterP = {
     expected: number[];
 }
 
-export type EvenDigitsSumIterP = {
+type NumberInputNumberOutputP = {
     input: number;
     expected: number;
 }
 
-export type OddDigitsProductIterP = EvenDigitsSumIterP;
+export type EvenDigitsSumIterP = NumberInputNumberOutputP;
+
+export type OddDigitsProductIterP = NumberInputNumberOutputP;
+
+export type ReverseNumberIterP = NumberInputNumberOutputP
