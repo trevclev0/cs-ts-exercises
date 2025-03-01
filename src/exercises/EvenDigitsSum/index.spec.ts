@@ -7,7 +7,7 @@ export type EvenDigitsSumTestTableT = TestTableType<number, number>;
 const sumOfEvenDigitTests: EvenDigitsSumTestTableT[] = [
     { input: 4625, expected: 12 },
     { input: 1359, expected: 0 },
-    { input: 1389, expected: 0 },
+    { input: 1389, expected: 8 },
     { input: 0, expected: 0 },
 ];
 
