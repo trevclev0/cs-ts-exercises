@@ -9,6 +9,7 @@ const sumOfEvenDigitTests: EvenDigitsSumTestTableT[] = [
     { input: 1359, expected: 0 },
     { input: 1389, expected: 8 },
     { input: 0, expected: 0 },
+    { input: 1, expected: 0 },
 ];
 
 describe('Sum of even digits', () => {
