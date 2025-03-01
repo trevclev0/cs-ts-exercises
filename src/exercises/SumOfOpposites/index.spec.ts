@@ -1,5 +1,5 @@
 import { describe, expect, it } from "@jest/globals";
-import { getSumsOfOpposites } from ".";
+import getSumsOfOpposites from ".";
 import { TestTableType } from "../../types/TestTypes";
 
 export type SumOfOppositesTestTableT = TestTableType<number[], number[]>;

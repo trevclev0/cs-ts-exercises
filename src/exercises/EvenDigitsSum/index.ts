@@ -1,4 +1,4 @@
-export function sumOfEvenDigits(number: number): number {
+export default function solution(number: number): number {
     let result: number = 0;
     do {
         const digit: number = number % 10;

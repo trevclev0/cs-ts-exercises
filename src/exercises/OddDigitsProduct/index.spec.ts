@@ -1,5 +1,5 @@
 import { describe, expect, it } from "@jest/globals";
-import { productOfOddDigits } from ".";
+import productOfOddDigits from ".";
 import { TestTableType } from "../../types/TestTypes";
 
 export type OddDigitsProductTestTableT = TestTableType<number, number>;

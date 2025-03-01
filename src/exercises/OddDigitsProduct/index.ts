@@ -1,4 +1,4 @@
-export function productOfOddDigits(number: number): number {
+export default function solution(number: number): number {
     let result: number = 1;
     let oddDigitExists = false;
     do {

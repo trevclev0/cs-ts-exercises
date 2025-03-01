@@ -1,4 +1,4 @@
-export function getSumsOfOpposites(numbers: number[]): number[] {
+export default function solution(numbers: number[]): number[] {
     const result: number[] = [];
     const midIndex = Math.ceil(numbers.length / 2);
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "@jest/globals";
-import { getReverseTuplets } from ".";
+import { solution } from ".";
 import { TestTableType } from "../../types/TestTypes";
 
 export type ReverseTupletTestTableT = TestTableType<number[], [number, number][]>;
@@ -14,6 +14,6 @@ const reverseTupletTests: ReverseTupletTestTableT[] = [
 
 describe('Reverse Tuplets', () => {
     it.each(reverseTupletTests)('Getting reversed tuplets of $input', ({ input, expected }) => {
-        expect(getReverseTuplets(input)).toEqual(expected);
+        expect(solution(input)).toEqual(expected);
     });
 });

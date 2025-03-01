@@ -1,5 +1,5 @@
 import { describe, expect, it } from "@jest/globals";
-import { reverseNumber } from ".";
+import solution from ".";
 import { TestTableType } from "../../types/TestTypes";
 
 export type ReverseNumberTestTableT = TestTableType<number, number>;
@@ -15,10 +15,11 @@ const reverseNumberTests: ReverseNumberTestTableT[] = [
     { input: 98765, expected: 56789 },
     { input: 876, expected: 678 },
     { input: 23456789, expected: 98765432 },
+    { input: 1230, expected: 321 },
 ];
 
 describe('Reverse number', () => {
     it.each(reverseNumberTests)('Reverse of $input is $expected', ({ input, expected }) => {
-        expect(reverseNumber(input)).toEqual(expected);
+        expect(solution(input)).toEqual(expected);
     });
 });
