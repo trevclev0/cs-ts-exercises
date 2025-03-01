@@ -12,7 +12,7 @@ const reverseTupletTests: ReverseTupletTestTableT[] = [
     { input: [12345, 54321, 11111, 44444, 22222, 88888], expected: [[12345, 54321], [54321, 12345], [11111, 11111], [44444, 44444], [22222, 22222], [88888, 88888]] },
 ];
 
-describe('Loop exercises', () => {
+describe('Reverse Tuplets', () => {
     it.each(reverseTupletTests)('Getting reversed tuplets of $input', ({ input, expected }) => {
         expect(getReverseTuplets(input)).toEqual(expected);
     });
