@@ -1,10 +1,10 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableType } from "../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-export type ConsecutiveRepeatCounterTestTableT = TestTableType<number, number>;
+type ConsecutiveRepeatCounterTestTableT = TestTableType<number, number>;
 
 const consecutiveRepeateCounterTests: ConsecutiveRepeatCounterTestTableT[] = [
     { input: 113224, expected: 2 },
