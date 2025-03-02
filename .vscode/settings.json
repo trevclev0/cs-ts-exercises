@@ -7,5 +7,7 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "jest.runMode": {
     "type": "on-save"
-  }
+  },
+  "eslint.nodePath": ".yarn/sdks",
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs"
 }

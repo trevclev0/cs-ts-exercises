@@ -1,4 +1,4 @@
 {
-  "*.ts": "yarn test",
-  "*": "yarn prettier"
+  "*.ts": "yarn test src",
+  "*": "yarn prettier --findRelatedTests"
 }
