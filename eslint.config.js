@@ -1,13 +1,24 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
 
+import shopifyEslintPlugin from "@shopify/eslint-plugin";
 
-/** @type {import('eslint').Linter.Config[]} */
-export default [
+const configs = [
   { files: ["**/*.{js,mjs,cjs,ts}"] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  { ignores: [".yarn/", ".pnp.cjs", ".pnp.mjs", "coverage/"] },
+  ...shopifyEslintPlugin.configs.typescript,
+  ...shopifyEslintPlugin.configs.prettier,
+  {
+    ignores: [
+      ".yarn/",
+      ".pnp.cjs",
+      ".pnp.loader.mjs",
+      "coverage/",
+      "jest.config.ts",
+    ],
+  },
 ];
+
+/** @type {import('eslint').Linter.Config[]} */
+export default configs;

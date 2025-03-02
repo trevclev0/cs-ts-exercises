@@ -1,4 +1,4 @@
-export interface TestTableType<InputType, ExpectedType> {
-    input: InputType;
-    expected: ExpectedType;
+export interface TestTableType<TInput, TExpected> {
+    input: TInput;
+    expected: TExpected;
 }

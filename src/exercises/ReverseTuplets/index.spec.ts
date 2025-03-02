@@ -1,6 +1,8 @@
 import { describe, expect, it } from "@jest/globals";
-import { solution } from ".";
+
 import { TestTableType } from "../../types/TestTypes";
+
+import { solution } from ".";
 
 export type ReverseTupletTestTableT = TestTableType<
     number[],

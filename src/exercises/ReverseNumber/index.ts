@@ -1,10 +1,11 @@
 export default function solution(number: number): number {
-    let result: number = 0;
+    let result = 0;
+    let num = number;
     do {
-        const digit: number = number % 10;
+        const digit: number = num % 10;
         result += digit;
-        number = Math.floor(number / 10);
+        num = Math.floor(num / 10);
         result *= 10;
-    } while (number > 0);
+    } while (num > 0);
     return result / 10;
 }

@@ -1,6 +1,8 @@
 import { describe, expect, it } from "@jest/globals";
-import sumOfEvenDigits from ".";
+
 import { TestTableType } from "../../types/TestTypes";
+
+import sumOfEvenDigits from ".";
 
 export type EvenDigitsSumTestTableT = TestTableType<number, number>;
 
