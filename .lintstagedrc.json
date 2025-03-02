@@ -1,3 +1,4 @@
 {
-  "*.ts": "yarn test"
+  "*.ts": "yarn test",
+  "*": "yarn prettier"
 }

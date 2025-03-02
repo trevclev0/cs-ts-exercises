@@ -18,8 +18,11 @@ const reverseNumberTests: ReverseNumberTestTableT[] = [
     { input: 1230, expected: 321 },
 ];
 
-describe('Reverse number', () => {
-    it.each(reverseNumberTests)('Reverse of $input is $expected', ({ input, expected }) => {
-        expect(solution(input)).toEqual(expected);
-    });
+describe("Reverse number", () => {
+    it.each(reverseNumberTests)(
+        "Reverse of $input is $expected",
+        ({ input, expected }) => {
+            expect(solution(input)).toEqual(expected);
+        },
+    );
 });

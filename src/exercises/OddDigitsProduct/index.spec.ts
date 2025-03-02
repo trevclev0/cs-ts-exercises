@@ -19,8 +19,11 @@ const productOfOddDigitTests: OddDigitsProductTestTableT[] = [
     { input: 100000000, expected: 1 },
 ];
 
-describe('Product of odd digits', () => {
-    it.each(productOfOddDigitTests)('Input: $input is $expected', ({ input, expected }) => {
-        expect(productOfOddDigits(input)).toEqual(expected);
-    });
-})
+describe("Product of odd digits", () => {
+    it.each(productOfOddDigitTests)(
+        "Input: $input is $expected",
+        ({ input, expected }) => {
+            expect(productOfOddDigits(input)).toEqual(expected);
+        },
+    );
+});

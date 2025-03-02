@@ -11,8 +11,11 @@ const sumOfOppositeTests: SumOfOppositesTestTableT[] = [
     { input: [200, 200], expected: [400] },
 ];
 
-describe('Sum of Opposites', () => {
-    it.each(sumOfOppositeTests)('Getting summed opposites of $input', ({ input, expected }) => {
-        expect(getSumsOfOpposites(input)).toEqual(expected);
-    });
+describe("Sum of Opposites", () => {
+    it.each(sumOfOppositeTests)(
+        "Getting summed opposites of $input",
+        ({ input, expected }) => {
+            expect(getSumsOfOpposites(input)).toEqual(expected);
+        },
+    );
 });

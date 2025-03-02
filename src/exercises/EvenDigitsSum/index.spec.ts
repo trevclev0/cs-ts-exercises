@@ -12,8 +12,11 @@ const sumOfEvenDigitTests: EvenDigitsSumTestTableT[] = [
     { input: 1, expected: 0 },
 ];
 
-describe('Sum of even digits', () => {
-    it.each(sumOfEvenDigitTests)('$input is $expected', ({ input, expected }) => {
-        expect(sumOfEvenDigits(input)).toEqual(expected);
-    });
+describe("Sum of even digits", () => {
+    it.each(sumOfEvenDigitTests)(
+        "$input is $expected",
+        ({ input, expected }) => {
+            expect(sumOfEvenDigits(input)).toEqual(expected);
+        },
+    );
 });
