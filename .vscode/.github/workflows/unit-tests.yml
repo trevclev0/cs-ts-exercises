@@ -3,7 +3,10 @@ name: Unit Tests
 on:
   pull_request:
     branches:
-      - '**'
+      - "**"
+  push:
+    branches:
+      - "**"
 
 jobs:
   test:
@@ -12,11 +15,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: "22.x"
 
       - name: Install dependencies
         run: yarn install
