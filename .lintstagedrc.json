@@ -1,4 +1,4 @@
 {
-  "*.ts": "yarn test src",
+  "!(*config).ts": "yarn test --bail --findRelatedTests",
   "*": "yarn lint"
 }
