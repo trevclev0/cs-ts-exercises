@@ -31,7 +31,7 @@ const stringifiedMiddlesTests: StringifiedMiddlesTableT[] = [
     },
 ];
 
-describe("Product Array", () => {
+describe("Stringified Pairings Array", () => {
     it.each(stringifiedMiddlesTests)(
         "The stringified middle elements of the array $#",
         ({ input, expected }) => {
