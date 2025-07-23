@@ -35,6 +35,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:8.37.0"],\
           ["@typescript-eslint/utils", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:8.37.0"],\
           ["commitizen", "npm:4.3.1"],\
+          ["cz-emoji-conventional", "npm:1.2.1"],\
           ["eslint", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:9.31.0"],\
           ["eslint-config-prettier", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:10.1.8"],\
           ["eslint-import-resolver-node", "npm:0.3.9"],\
@@ -3964,6 +3965,18 @@ const RAW_RUNTIME_STATE =
           ["cz-conventional-changelog", "npm:3.3.0"],\
           ["lodash.map", "npm:4.6.0"],\
           ["longest", "npm:2.0.1"],\
+          ["word-wrap", "npm:1.2.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["cz-emoji-conventional", [\
+      ["npm:1.2.1", {\
+        "packageLocation": "../../.yarn/berry/cache/cz-emoji-conventional-npm-1.2.1-3978835cc2-10c0.zip/node_modules/cz-emoji-conventional/",\
+        "packageDependencies": [\
+          ["chalk", "npm:4.1.2"],\
+          ["commitizen", "npm:4.3.1"],\
+          ["cz-emoji-conventional", "npm:1.2.1"],\
           ["word-wrap", "npm:1.2.5"]\
         ],\
         "linkType": "HARD"\
@@ -8884,6 +8897,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:8.37.0"],\
           ["@typescript-eslint/utils", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:8.37.0"],\
           ["commitizen", "npm:4.3.1"],\
+          ["cz-emoji-conventional", "npm:1.2.1"],\
           ["eslint", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:9.31.0"],\
           ["eslint-config-prettier", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:10.1.8"],\
           ["eslint-import-resolver-node", "npm:0.3.9"],\
