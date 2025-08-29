@@ -25,6 +25,7 @@ const capitalizeWordsTests: CapitalizeWordsTableT[] = [
     { input: "SoME rAndoM _TeXT", expected: "Some Random _text" },
     { input: "CAPS lock IS on", expected: "Caps Lock Is On" },
     { input: "mIxEd CaSe sample", expected: "Mixed Case Sample" },
+    { input: "!(*&#%$#)", expected: "!(*&#%$#)" },
 ];
 
 describe("Capitalize words exercise", () => {
