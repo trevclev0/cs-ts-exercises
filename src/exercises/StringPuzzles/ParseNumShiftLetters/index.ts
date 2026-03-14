@@ -18,7 +18,7 @@ const replaceFunc = (_: string, num: string, char: string): string => {
 
 /**
  * Convert string to contain FrankenNumStrings
- * FranekenNumStrings are strings where:
+ * FrankenNumStrings are strings where:
  * - Each positive numbers are identified
  * - The letter following the number is identified
  * - The number is placed immediately after the letter
