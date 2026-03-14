@@ -47,10 +47,26 @@ const scoreParsingTests: FrankenNumTableT[] = [
         input: "There are 3 books on the table.",
         expected: "There are b3ooks on the table.",
     },
+    {
+        input: "There are 10 birds on 20 trees.",
+        expected: "There are b10irds on t20rees.",
+    },
+    {
+        input: "This is version 2.3, not 2a3.",
+        expected: "This is version 2.3, not 2a3.",
+    },
+    {
+        input: "I saw 12 birds today.",
+        expected: "I saw b12irds today.",
+    },
+    {
+        input: "I saw -12 birds today.",
+        expected: "I saw -b12irds today.",
+    },
 ];
 
 describe("Franken-num-characters challenge", () => {
-    it.each(scoreParsingTests)("Excercise $#", ({ input, expected }) => {
+    it.each(scoreParsingTests)("Exercise $#", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
 });
