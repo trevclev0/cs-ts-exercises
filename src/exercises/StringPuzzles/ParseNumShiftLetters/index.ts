@@ -2,7 +2,7 @@
  * Identifies each number and letter "pair" in the string, with superfluous characters in between
  * (which superfluous letters will be stripped out later)
  */
-const numStrPairRegex = /(\d)[^\w]+(\w)/g;
+const numStrPairRegex = /(\d+)[^\w]+([a-zA-Z])/g;
 
 /**
  * Identifies the head of the FrankenNumString.
