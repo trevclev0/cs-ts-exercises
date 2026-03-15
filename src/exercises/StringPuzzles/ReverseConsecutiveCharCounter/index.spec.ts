@@ -1,19 +1,25 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableType } from "../../../types/TestTypes";
+import { TestTableWithNameType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type ReverseConsecutiveCharTableT = TestTableType<string, string[]>;
+type ReverseConsecutiveCharTableT = TestTableWithNameType<string, string[]>;
 
 const reverseConsecutiveCharTests: ReverseConsecutiveCharTableT[] = [
     {
+        testName: "multiple runs",
         input: "aaabbcccdde",
         expected: ["e 1", "d 2", "c 3", "b 2", "a 3"],
     },
-    { input: "aaaaaaaZ", expected: ["Z 1", "a 7"] },
-    { input: "a", expected: ["a 1"] },
     {
+        testName: "seven as and one Z",
+        input: "aaaaaaaZ",
+        expected: ["Z 1", "a 7"],
+    },
+    { testName: "single char", input: "a", expected: ["a 1"] },
+    {
+        testName: "alphanumeric palindrome",
         input: "abc12321cba",
         expected: [
             "a 1",
@@ -30,6 +36,7 @@ const reverseConsecutiveCharTests: ReverseConsecutiveCharTableT[] = [
         ],
     },
     {
+        testName: "numeric palindrome",
         input: "123454321",
         expected: [
             "1 1",
@@ -43,17 +50,20 @@ const reverseConsecutiveCharTests: ReverseConsecutiveCharTableT[] = [
             "1 1",
         ],
     },
-    { input: "ABBA", expected: ["A 1", "B 2", "A 1"] },
+    { testName: "ABBA", input: "ABBA", expected: ["A 1", "B 2", "A 1"] },
     {
+        testName: "Radar case sensitive",
         input: "Radar",
         expected: ["r 1", "a 1", "d 1", "a 1", "R 1"],
     },
-    { input: "$$$$$", expected: ["$ 5"] },
+    { testName: "special chars", input: "$$$$$", expected: ["$ 5"] },
     {
+        testName: "Rotor",
         input: "Rotor",
         expected: ["r 1", "o 1", "t 1", "o 1", "R 1"],
     },
     {
+        testName: "long phrase with punctuation",
         input: "Red roses run no risk, sir, on Nurse's order",
         expected: [
             "r 1",
@@ -105,12 +115,9 @@ const reverseConsecutiveCharTests: ReverseConsecutiveCharTableT[] = [
 ];
 
 describe("Reverse Consecutive Char Counter", () => {
-    it.each(reverseConsecutiveCharTests)(
-        "The number of consecutive characters from the end $#",
-        ({ input, expected }) => {
-            expect(solution(input)).toEqual(expected);
-        },
-    );
+    it.each(reverseConsecutiveCharTests)("$testName", ({ input, expected }) => {
+        expect(solution(input)).toEqual(expected);
+    });
 
     it("Empty string", () => {
         expect(() => solution("")).toThrow("Invalid input length");
