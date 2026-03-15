@@ -67,6 +67,14 @@ const frankenNumStringTestCases: FrankenNumTableT[] = [
         input: "I saw -12 birds today.",
         expected: "I saw -12 birds today.",
     },
+    {
+        input: "2 -3j 232 -323j 2893 29.387wlekj",
+        expected: "2 -3j 232 -323j 2893 29.387wlekj",
+    },
+    {
+        input: "2-way street, 1.my point is, 1.1 my subpoint, 2!equals 2",
+        expected: "w2ay street, m1y point is, 1.1 my subpoint, e2quals 2",
+    },
 ];
 
 describe("Franken-num-characters challenge", () => {
