@@ -6,7 +6,7 @@ import solution from ".";
 
 type FrankenNumTableT = TestTableType<string, string>;
 
-const scoreParsingTests: FrankenNumTableT[] = [
+const frankenNumStringTestCases: FrankenNumTableT[] = [
     {
         input: "I have 2 apples and 5! oranges and 3 grapefruits.",
         expected: "I have a2pples and o5ranges and g3rapefruits.",
@@ -70,7 +70,7 @@ const scoreParsingTests: FrankenNumTableT[] = [
 ];
 
 describe("Franken-num-characters challenge", () => {
-    it.each(scoreParsingTests)("Exercise $#", ({ input, expected }) => {
+    it.each(frankenNumStringTestCases)("Exercise $#", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
 });
