@@ -1,24 +1,25 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableType } from "../../../types/TestTypes";
+import { TestTableWithNameType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type WeaveLettersTestTableT = TestTableType<string, string>;
+type WeaveLettersTestTableT = TestTableWithNameType<string, string>;
 
 const weaveLetterTests: WeaveLettersTestTableT[] = [
-    { input: "abcdefg", expected: "agbfced" },
-    { input: "lskdfj", expected: "ljsfkd" },
-    { input: "", expected: "" },
-    { input: "agbfced", expected: "adgebcf" },
-    { input: "usrmldebacn", expected: "unscrambled" },
+    { testName: "seven chars weave", input: "abcdefg", expected: "agbfced" },
+    { testName: "six chars", input: "lskdfj", expected: "ljsfkd" },
+    { testName: "empty string", input: "", expected: "" },
+    {
+        testName: "weave of previous result",
+        input: "agbfced",
+        expected: "adgebcf",
+    },
+    { testName: "unscrambled", input: "usrmldebacn", expected: "unscrambled" },
 ];
 
 describe("Consecutive Repeat Counter", () => {
-    it.each(weaveLetterTests)(
-        "Number of consecutive repeat numbers in $input is $expected",
-        ({ input, expected }) => {
-            expect(solution(input)).toEqual(expected);
-        },
-    );
+    it.each(weaveLetterTests)("$testName", ({ input, expected }) => {
+        expect(solution(input)).toEqual(expected);
+    });
 });

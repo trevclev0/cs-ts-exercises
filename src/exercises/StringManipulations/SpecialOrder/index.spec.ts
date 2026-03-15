@@ -1,19 +1,24 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableType } from "../../../types/TestTypes";
+import { TestTableWithNameType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type SpecialOrderTestTableT = TestTableType<string, string>;
+type SpecialOrderTestTableT = TestTableWithNameType<string, string>;
 
 const specialOrderTests: SpecialOrderTestTableT[] = [
-    { input: "abcde", expected: "edcab" },
-    { input: "abcdef", expected: "fedabc" },
-    { input: "a", expected: "a" },
-    { input: "zyxwvutsrqpon", expected: "nopqrstzyxwvu" },
-    { input: "abcddcba", expected: "abcdabcd" },
-    { input: "", expected: "" },
+    { testName: "odd length five", input: "abcde", expected: "edcab" },
+    { testName: "even length six", input: "abcdef", expected: "fedabc" },
+    { testName: "single char", input: "a", expected: "a" },
     {
+        testName: "reversed alphabet half",
+        input: "zyxwvutsrqpon",
+        expected: "nopqrstzyxwvu",
+    },
+    { testName: "palindrome-like", input: "abcddcba", expected: "abcdabcd" },
+    { testName: "empty string", input: "", expected: "" },
+    {
+        testName: "long repeated alphabet",
         input: "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd",
         expected:
             "dcbazyxwvutsrqponmlkjihgfedcbazyxwvutsrqponmlkjihgfedcabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzab",
@@ -21,10 +26,7 @@ const specialOrderTests: SpecialOrderTestTableT[] = [
 ];
 
 describe("Special Order String", () => {
-    it.each(specialOrderTests)(
-        "Reording the letters of $input is $expected",
-        ({ input, expected }) => {
-            expect(solution(input)).toEqual(expected);
-        },
-    );
+    it.each(specialOrderTests)("$testName", ({ input, expected }) => {
+        expect(solution(input)).toEqual(expected);
+    });
 });
