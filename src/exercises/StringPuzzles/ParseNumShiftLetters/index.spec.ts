@@ -60,8 +60,12 @@ const scoreParsingTests: FrankenNumTableT[] = [
         expected: "I saw b12irds today.",
     },
     {
+        input: "I saw -2 squirrels today.",
+        expected: "I saw -2 squirrels today.",
+    },
+    {
         input: "I saw -12 birds today.",
-        expected: "I saw -b12irds today.",
+        expected: "I saw -12 birds today.",
     },
 ];
 

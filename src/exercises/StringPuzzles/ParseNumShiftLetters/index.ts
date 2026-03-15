@@ -2,7 +2,7 @@
  * Identifies each non-decimal number and letter "pair" in the string, with superfluous characters in between
  * (which superfluous letters will be stripped out later)
  */
-const numStrPairRegex = /(?<!\.)(\d+)[\s\p{P}]+([a-zA-Z])/gu;
+const numStrPairRegex = /(?<![-.\d])(\d+)[\s\p{P}]+([a-zA-Z])/gu;
 
 /**
  * Identifies the head of the FrankenNumString.
@@ -19,7 +19,7 @@ const replaceFunc = (_: string, num: string, char: string): string => {
 /**
  * Convert string to contain FrankenNumStrings
  * FrankenNumStrings are strings where:
- * - Each positive number is identified
+ * - Each positive integer is identified
  * - The letter following the number is identified
  * - The number is placed immediately after the letter
  * - All characters between the number and the letter are removed
