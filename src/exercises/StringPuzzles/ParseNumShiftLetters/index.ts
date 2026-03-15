@@ -1,6 +1,6 @@
 /**
- * Identifies each non-decimal number and letter "pair" in the string, with superfluous characters in between
- * (which superfluous letters will be stripped out later)
+ * Identifies each positive integer and the first following letter,
+ * when separated only by whitespace and/or punctuation.
  */
 const numStrPairRegex = /(?<![-.\d])(\d+)[\s\p{P}]+([a-zA-Z])/gu;
 
