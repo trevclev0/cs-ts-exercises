@@ -13,7 +13,7 @@ const frankenNumStringTestCases: FrankenNumTableT[] = [
         expected: "I have a2pples and o5ranges and g3rapefruits.",
     },
     {
-        testName: "Finds '1 rabbit' FrankenNumStrings",
+        testName: "Finds two animal-base FrankenNumStrings",
         input: "4 foxes are chasing 1 rabbit.",
         expected: "f4oxes are chasing r1abbit.",
     },
