@@ -33,7 +33,7 @@ const simpleMiddleOutTests: SimpleMiddleOutsTableT[] = [
     { testName: "two zeros", input: [0, 0], expected: [0, 0] },
 ];
 
-describe("Product Array", () => {
+describe("Simple Middle Out", () => {
     it.each(simpleMiddleOutTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
