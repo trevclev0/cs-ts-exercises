@@ -4,12 +4,12 @@ import { TestTableWithNameType } from "../../../types/TestTypes";
 
 import { solution } from ".";
 
-export type ReverseTupletTestTableT = TestTableWithNameType<
+type ReverseTupletTestTable = TestTableWithNameType<
     number[],
     [number, number][]
 >;
 
-const reverseTupletTests: ReverseTupletTestTableT[] = [
+const reverseTupletTests: ReverseTupletTestTable[] = [
     {
         testName: "reversible pairs",
         input: [12, 21, 34, 43, 56, 65],
