@@ -37,11 +37,6 @@ const capitalizeWordsTests: CapitalizeWordsTableT[] = [
         expected: "Hello Neat Pythonistas_123",
     },
     {
-        testName: "mixed case duplicate",
-        input: "SoME rAndoM _TeXT",
-        expected: "Some Random _text",
-    },
-    {
         testName: "CAPS lock",
         input: "CAPS lock IS on",
         expected: "Caps Lock Is On",
