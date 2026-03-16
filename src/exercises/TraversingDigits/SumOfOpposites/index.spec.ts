@@ -4,12 +4,9 @@ import { TestTableWithNameType } from "../../../types/TestTypes";
 
 import getSumsOfOpposites from ".";
 
-export type SumOfOppositesTestTableT = TestTableWithNameType<
-    number[],
-    number[]
->;
+type SumOfOppositesTestTable = TestTableWithNameType<number[], number[]>;
 
-const sumOfOppositeTests: SumOfOppositesTestTableT[] = [
+const sumOfOppositeTests: SumOfOppositesTestTable[] = [
     {
         testName: "odd length positive",
         input: [1, 2, 3, 4, 5],
