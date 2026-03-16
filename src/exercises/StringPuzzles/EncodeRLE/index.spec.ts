@@ -39,7 +39,7 @@ const consecutiveCharCounterTests: EncodeRLETableT[] = [
     },
 ];
 
-describe("Consecutive Char Counter", () => {
+describe("Encode RLE", () => {
     it.each(consecutiveCharCounterTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
