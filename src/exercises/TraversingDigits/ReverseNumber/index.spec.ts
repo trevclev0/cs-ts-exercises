@@ -4,9 +4,9 @@ import { TestTableWithNameType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-export type ReverseNumberTestTableT = TestTableWithNameType<number, number>;
+type ReverseNumberTestTable = TestTableWithNameType<number, number>;
 
-const reverseNumberTests: ReverseNumberTestTableT[] = [
+const reverseNumberTests: ReverseNumberTestTable[] = [
     { testName: "five digits", input: 12345, expected: 54321 },
     { testName: "single digit", input: 1, expected: 1 },
     { testName: "eight digits", input: 87654321, expected: 12345678 },
@@ -24,7 +24,7 @@ const reverseNumberTests: ReverseNumberTestTableT[] = [
     },
 ];
 
-describe("Reverse number", () => {
+describe("Reverse Number", () => {
     it.each(reverseNumberTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
