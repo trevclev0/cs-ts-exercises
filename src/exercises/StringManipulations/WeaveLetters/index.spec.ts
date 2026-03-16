@@ -18,7 +18,7 @@ const weaveLetterTests: WeaveLettersTestTableT[] = [
     { testName: "unscrambled", input: "usrmldebacn", expected: "unscrambled" },
 ];
 
-describe("Consecutive Repeat Counter", () => {
+describe("Weave Letters", () => {
     it.each(weaveLetterTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
