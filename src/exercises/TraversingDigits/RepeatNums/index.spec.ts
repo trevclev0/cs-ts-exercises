@@ -4,9 +4,9 @@ import { TestTableWithNameType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-export type RepeatNumberTestTableT = TestTableWithNameType<number, number>;
+type RepeatNumberTestTable = TestTableWithNameType<number, number>;
 
-const repeatNumberTests: RepeatNumberTestTableT[] = [
+const repeatNumberTests: RepeatNumberTestTable[] = [
     { testName: "four digits", input: 1234, expected: 11223344 },
     { testName: "single digit", input: 1, expected: 11 },
     { testName: "double 2", input: 22, expected: 2222 },
@@ -19,7 +19,7 @@ const repeatNumberTests: RepeatNumberTestTableT[] = [
     { testName: "all sixes", input: 6666, expected: 66666666 },
 ];
 
-describe("Repeat numbers", () => {
+describe("Repeat Numbers", () => {
     it.each(repeatNumberTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
