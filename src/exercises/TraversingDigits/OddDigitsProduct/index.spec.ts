@@ -4,9 +4,9 @@ import { TestTableWithNameType } from "../../../types/TestTypes";
 
 import productOfOddDigits from ".";
 
-export type OddDigitsProductTestTableT = TestTableWithNameType<number, number>;
+type OddDigitsProductTestTable = TestTableWithNameType<number, number>;
 
-const productOfOddDigitTests: OddDigitsProductTestTableT[] = [
+const productOfOddDigitTests: OddDigitsProductTestTable[] = [
     { testName: "mixed odd digits", input: 43172, expected: 21 },
     { testName: "all even digits", input: 2468, expected: 0 },
     { testName: "all fives", input: 555, expected: 125 },
@@ -25,7 +25,7 @@ const productOfOddDigitTests: OddDigitsProductTestTableT[] = [
     },
 ];
 
-describe("Product of odd digits", () => {
+describe("Product of Odd Digits", () => {
     it.each(productOfOddDigitTests)("$testName", ({ input, expected }) => {
         expect(productOfOddDigits(input)).toEqual(expected);
     });
