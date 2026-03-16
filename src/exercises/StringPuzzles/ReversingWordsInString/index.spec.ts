@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type ReversingWordsTableT = TestTableWithNameType<string, string>;
+type ReversingWordsTestTable = TestTableType<string, string>;
 
-const reverseWordTests: ReversingWordsTableT[] = [
+const reverseWordTests: ReversingWordsTestTable[] = [
     {
         testName: "words with underscores and numbers",
         input: "Hello neat typescript_lovers_123",
@@ -24,7 +24,7 @@ const reverseWordTests: ReversingWordsTableT[] = [
     },
 ];
 
-describe("Reversing Words in String", () => {
+describe("Reversing Words", () => {
     it.each(reverseWordTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

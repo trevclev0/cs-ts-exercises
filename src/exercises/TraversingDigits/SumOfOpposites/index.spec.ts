@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
-import getSumsOfOpposites from ".";
+import solution from ".";
 
-type SumOfOppositesTestTable = TestTableWithNameType<number[], number[]>;
+type SumOfOppositesTestTable = TestTableType<number[], number[]>;
 
-const sumOfOppositeTests: SumOfOppositesTestTable[] = [
+const sumOfOppositesTests: SumOfOppositesTestTable[] = [
     {
         testName: "odd length positive",
         input: [1, 2, 3, 4, 5],
@@ -22,7 +22,7 @@ const sumOfOppositeTests: SumOfOppositesTestTable[] = [
 ];
 
 describe("Sum of Opposites", () => {
-    it.each(sumOfOppositeTests)("$testName", ({ input, expected }) => {
-        expect(getSumsOfOpposites(input)).toEqual(expected);
+    it.each(sumOfOppositesTests)("$testName", ({ input, expected }) => {
+        expect(solution(input)).toEqual(expected);
     });
 });

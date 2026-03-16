@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type FlipCharNumsTableT = TestTableWithNameType<string, string>;
+type FlipCharNumsTestTable = TestTableType<string, string>;
 
-const flipCharNumTests: FlipCharNumsTableT[] = [
+const flipCharNumTests: FlipCharNumsTestTable[] = [
     {
         testName: "digits to letters",
         input: "1-2-3-4-5",
@@ -43,7 +43,7 @@ const flipCharNumTests: FlipCharNumsTableT[] = [
     },
 ];
 
-describe("Flip character to numbers and numbers to character exercise", () => {
+describe("Flip Characters to Numbers and Numbers to Characters", () => {
     it.each(flipCharNumTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

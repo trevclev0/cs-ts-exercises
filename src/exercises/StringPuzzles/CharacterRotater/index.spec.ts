@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type CharacterRotationsTableT = TestTableWithNameType<string, string>;
+type CharacterRotationTestTable = TestTableType<string, string>;
 
-const characterRotationTests: CharacterRotationsTableT[] = [
+const characterRotationTests: CharacterRotationTestTable[] = [
     {
         testName: "multiple words alphanumeric",
         input: "abc 123 def ghi",
@@ -37,7 +37,7 @@ const characterRotationTests: CharacterRotationsTableT[] = [
     },
 ];
 
-describe("Rotation of characters of words", () => {
+describe("Rotation of Characters of Words", () => {
     it.each(characterRotationTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

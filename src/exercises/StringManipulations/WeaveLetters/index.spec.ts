@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type WeaveLettersTestTableT = TestTableWithNameType<string, string>;
+type WeaveLettersTestTable = TestTableType<string, string>;
 
-const weaveLetterTests: WeaveLettersTestTableT[] = [
+const weaveLetterTests: WeaveLettersTestTable[] = [
     { testName: "seven chars weave", input: "abcdefg", expected: "agbfced" },
     { testName: "six chars", input: "lskdfj", expected: "ljsfkd" },
     { testName: "empty string", input: "", expected: "" },

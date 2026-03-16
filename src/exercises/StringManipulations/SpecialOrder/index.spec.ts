@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type SpecialOrderTestTableT = TestTableWithNameType<string, string>;
+type SpecialOrderTestTable = TestTableType<string, string>;
 
-const specialOrderTests: SpecialOrderTestTableT[] = [
+const specialOrderTests: SpecialOrderTestTable[] = [
     { testName: "odd length five", input: "abcde", expected: "edcab" },
     { testName: "even length six", input: "abcdef", expected: "fedabc" },
     { testName: "single char", input: "a", expected: "a" },

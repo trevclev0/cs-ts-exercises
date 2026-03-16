@@ -1,15 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import { solution } from ".";
 
-type ReverseTupletTestTable = TestTableWithNameType<
-    number[],
-    [number, number][]
->;
+type ReverseTupletsTestTable = TestTableType<number[], [number, number][]>;
 
-const reverseTupletTests: ReverseTupletTestTable[] = [
+const reverseTupletsTests: ReverseTupletsTestTable[] = [
     {
         testName: "reversible pairs",
         input: [12, 21, 34, 43, 56, 65],
@@ -63,7 +60,7 @@ const reverseTupletTests: ReverseTupletTestTable[] = [
 ];
 
 describe("Reverse Tuplets", () => {
-    it.each(reverseTupletTests)("$testName", ({ input, expected }) => {
+    it.each(reverseTupletsTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
 });

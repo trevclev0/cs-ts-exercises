@@ -1,15 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type SpecialOrderSkipTestTableT = TestTableWithNameType<
-    [string, number],
-    string
->;
+type SpecialOrderSkipTestTable = TestTableType<[string, number], string>;
 
-const specialOrderSkipTests: SpecialOrderSkipTestTableT[] = [
+const specialOrderSkipTests: SpecialOrderSkipTestTable[] = [
     {
         testName: "skip 3 seven chars",
         input: ["abcdefg", 3],

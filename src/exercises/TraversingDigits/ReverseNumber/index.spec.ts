@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type ReverseNumberTestTable = TestTableWithNameType<number, number>;
+type ReverseNumberTestTable = TestTableType<number, number>;
 
-const reverseNumberTests: ReverseNumberTestTable[] = [
+const reverseNumbersTests: ReverseNumberTestTable[] = [
     { testName: "five digits", input: 12345, expected: 54321 },
     { testName: "single digit", input: 1, expected: 1 },
     { testName: "eight digits", input: 87654321, expected: 12345678 },
@@ -25,7 +25,7 @@ const reverseNumberTests: ReverseNumberTestTable[] = [
 ];
 
 describe("Reverse Number", () => {
-    it.each(reverseNumberTests)("$testName", ({ input, expected }) => {
+    it.each(reverseNumbersTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
 });

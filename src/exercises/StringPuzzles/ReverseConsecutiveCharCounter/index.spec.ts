@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type ReverseConsecutiveCharTableT = TestTableWithNameType<string, string[]>;
+type ReverseConsecutiveCharTestTable = TestTableType<string, string[]>;
 
-const reverseConsecutiveCharTests: ReverseConsecutiveCharTableT[] = [
+const reverseConsecutiveCharTests: ReverseConsecutiveCharTestTable[] = [
     {
         testName: "multiple runs",
         input: "aaabbcccdde",
@@ -114,7 +114,7 @@ const reverseConsecutiveCharTests: ReverseConsecutiveCharTableT[] = [
     },
 ];
 
-describe("Reverse Consecutive Char Counter", () => {
+describe("Reverse Consecutive Characters Counter", () => {
     it.each(reverseConsecutiveCharTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type OppositeProductsTableT = TestTableWithNameType<number[], number[]>;
+type OppositeProductsTestTable = TestTableType<number[], number[]>;
 
-const oppositeProductTests: OppositeProductsTableT[] = [
+const oppositeProductTests: OppositeProductsTestTable[] = [
     {
         testName: "odd length positive",
         input: [1, 2, 3, 4, 5],

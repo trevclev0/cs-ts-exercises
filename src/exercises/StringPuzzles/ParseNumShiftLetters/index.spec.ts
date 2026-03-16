@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type FrankenNumTableT = TestTableWithNameType<string, string>;
+type FrankenNumTestTable = TestTableType<string, string>;
 
-const frankenNumStringTestCases: FrankenNumTableT[] = [
+const frankenNumStringTestCases: FrankenNumTestTable[] = [
     {
         testName: "Finds 3 fruit-based FrankenNumStrings",
         input: "I have 2 apples and 5! oranges and 3 grapefruits.",
@@ -94,7 +94,7 @@ const frankenNumStringTestCases: FrankenNumTableT[] = [
     },
 ];
 
-describe("FrankenNumStrings challenge", () => {
+describe("FrankenNumStrings", () => {
     it.each(frankenNumStringTestCases)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
