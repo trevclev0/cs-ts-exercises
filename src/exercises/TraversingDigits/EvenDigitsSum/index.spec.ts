@@ -1,10 +1,10 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import sumOfEvenDigits from ".";
 
-type EvenDigitsSumTestTable = TestTableWithNameType<number, number>;
+type EvenDigitsSumTestTable = TestTableType<number, number>;
 
 const sumOfEvenDigitTests: EvenDigitsSumTestTable[] = [
     { testName: "mixed even digits", input: 4625, expected: 12 },

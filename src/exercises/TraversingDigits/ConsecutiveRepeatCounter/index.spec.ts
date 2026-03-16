@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type ConsecutiveRepeatCounterTestTableT = TestTableWithNameType<number, number>;
+type ConsecutiveRepeatCounterTestTable = TestTableType<number, number>;
 
-const consecutiveRepeateCounterTests: ConsecutiveRepeatCounterTestTableT[] = [
+const consecutiveRepeateCounterTests: ConsecutiveRepeatCounterTestTable[] = [
     { testName: "two consecutive pairs", input: 113224, expected: 2 },
     { testName: "many consecutive same digits", input: 33333888, expected: 6 },
     { testName: "all different digits", input: 13579, expected: 0 },

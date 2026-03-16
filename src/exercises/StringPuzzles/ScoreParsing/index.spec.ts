@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type ScoreParsingTableT = TestTableWithNameType<string, number>;
+type ScoreParsingTestTable = TestTableType<string, number>;
 
-const scoreParsingTests: ScoreParsingTableT[] = [
+const scoreParsingTests: ScoreParsingTestTable[] = [
     {
         testName: "sums multiple players with mixed format and repeated player",
         input: "joe scored 5 points, while adam scored 10 points and bob scored 2, with an extra 1 point scored by joe",
@@ -59,7 +59,7 @@ const scoreParsingTests: ScoreParsingTableT[] = [
     },
 ];
 
-describe("Score parsing exercise", () => {
+describe("Score Parsing", () => {
     it.each(scoreParsingTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

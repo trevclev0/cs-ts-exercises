@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type ConsecutiveCharCounterTableT = TestTableWithNameType<string, string[]>;
+type ConsecutiveCharCounterTestTable = TestTableType<string, string[]>;
 
-const consecutiveCharCounterTests: ConsecutiveCharCounterTableT[] = [
+const consecutiveCharCounterTests: ConsecutiveCharCounterTestTable[] = [
     {
         testName: "multiple runs with repeated a",
         input: "aaabbcccaae",
@@ -24,7 +24,7 @@ const consecutiveCharCounterTests: ConsecutiveCharCounterTableT[] = [
     },
 ];
 
-describe("Consecutive Char Counter", () => {
+describe("Consecutive Characters Counter", () => {
     it.each(consecutiveCharCounterTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

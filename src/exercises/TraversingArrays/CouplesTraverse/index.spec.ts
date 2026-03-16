@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type TraversedCouplesTableT = TestTableWithNameType<number[], number[]>;
+type TraversedCouplesTestTable = TestTableType<number[], number[]>;
 
-const traversedCouplesTests: TraversedCouplesTableT[] = [
+const traversedCouplesTests: TraversedCouplesTestTable[] = [
     {
         testName: "odd length five",
         input: [1, 2, 3, 4, 5],
@@ -30,7 +30,7 @@ const traversedCouplesTests: TraversedCouplesTableT[] = [
     { testName: "single element", input: [100], expected: [100] },
 ];
 
-describe("Couples Traverse Array", () => {
+describe("Couples Traverse", () => {
     it.each(traversedCouplesTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

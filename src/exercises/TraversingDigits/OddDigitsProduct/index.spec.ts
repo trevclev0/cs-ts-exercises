@@ -1,10 +1,10 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import productOfOddDigits from ".";
 
-type OddDigitsProductTestTable = TestTableWithNameType<number, number>;
+type OddDigitsProductTestTable = TestTableType<number, number>;
 
 const productOfOddDigitTests: OddDigitsProductTestTable[] = [
     { testName: "mixed odd digits", input: 43172, expected: 21 },

@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type ParseProductTableT = TestTableWithNameType<string, number>;
+type ParseProductTestTable = TestTableType<string, number>;
 
-const parseProductTests: ParseProductTableT[] = [
+const parseProductTests: ParseProductTestTable[] = [
     {
         testName: "apples and oranges",
         input: "I have 2 apples and 5 oranges",
@@ -99,7 +99,7 @@ const parseProductTests: ParseProductTableT[] = [
     },
 ];
 
-describe("Parse product", () => {
+describe("Parse Product", () => {
     it.each(parseProductTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

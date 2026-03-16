@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type EncodeRLETableT = TestTableWithNameType<string, string>;
+type EncodeRLETestTable = TestTableType<string, string>;
 
-const consecutiveCharCounterTests: EncodeRLETableT[] = [
+const encodeRLETests: EncodeRLETestTable[] = [
     { testName: "mixed runs", input: "aabbbcceddf", expected: "a2b3c2e1d2f1" },
     {
         testName: "letters and symbols",
@@ -40,7 +40,7 @@ const consecutiveCharCounterTests: EncodeRLETableT[] = [
 ];
 
 describe("Encode RLE", () => {
-    it.each(consecutiveCharCounterTests)("$testName", ({ input, expected }) => {
+    it.each(encodeRLETests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
 });

@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type RepeatNumberTestTable = TestTableWithNameType<number, number>;
+type RepeatNumbersTestTable = TestTableType<number, number>;
 
-const repeatNumberTests: RepeatNumberTestTable[] = [
+const repeatNumbersTests: RepeatNumbersTestTable[] = [
     { testName: "four digits", input: 1234, expected: 11223344 },
     { testName: "single digit", input: 1, expected: 11 },
     { testName: "double 2", input: 22, expected: 2222 },
@@ -20,7 +20,7 @@ const repeatNumberTests: RepeatNumberTestTable[] = [
 ];
 
 describe("Repeat Numbers", () => {
-    it.each(repeatNumberTests)("$testName", ({ input, expected }) => {
+    it.each(repeatNumbersTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
 });

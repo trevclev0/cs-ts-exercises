@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type StringifiedMiddlesTableT = TestTableWithNameType<number[], string[]>;
+type StringifiedMiddlesTestTable = TestTableType<number[], string[]>;
 
-const stringifiedMiddlesTests: StringifiedMiddlesTableT[] = [
+const stringifiedMiddlesTests: StringifiedMiddlesTestTable[] = [
     {
         testName: "odd length five",
         input: [1, 2, 3, 4, 5],
@@ -44,7 +44,7 @@ const stringifiedMiddlesTests: StringifiedMiddlesTableT[] = [
     },
 ];
 
-describe("Stringified Pairings Array", () => {
+describe("Stringified Pairings", () => {
     it.each(stringifiedMiddlesTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type SimpleMiddleOutsTableT = TestTableWithNameType<number[], number[]>;
+type SimpleMiddleOutsTestTable = TestTableType<number[], number[]>;
 
-const simpleMiddleOutTests: SimpleMiddleOutsTableT[] = [
+const simpleMiddleOutTests: SimpleMiddleOutsTestTable[] = [
     {
         testName: "odd length five",
         input: [1, 2, 3, 4, 5],
@@ -33,7 +33,7 @@ const simpleMiddleOutTests: SimpleMiddleOutsTableT[] = [
     { testName: "two zeros", input: [0, 0], expected: [0, 0] },
 ];
 
-describe("Simple Middle Out", () => {
+describe("Simple Middle-Out", () => {
     it.each(simpleMiddleOutTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

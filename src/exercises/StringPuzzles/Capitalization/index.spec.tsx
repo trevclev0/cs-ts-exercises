@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type CapitalizeWordsTableT = TestTableWithNameType<string, string>;
+type CapitalizeWordsTestTable = TestTableType<string, string>;
 
-const capitalizeWordsTests: CapitalizeWordsTableT[] = [
+const capitalizeWordsTests: CapitalizeWordsTestTable[] = [
     {
         testName: "mixed case with underscore",
         input: "SoME rAndoM _TeXT",
@@ -53,7 +53,7 @@ const capitalizeWordsTests: CapitalizeWordsTableT[] = [
     },
 ];
 
-describe("Capitalize words exercise", () => {
+describe("Capitalize Words", () => {
     it.each(capitalizeWordsTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

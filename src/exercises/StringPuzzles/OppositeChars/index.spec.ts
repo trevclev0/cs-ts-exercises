@@ -1,13 +1,13 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution, { convertCharToOpposite } from ".";
 
-type OppositeCharWordsTableT = TestTableWithNameType<string, string>;
-type OppositeCharTableT = TestTableWithNameType<string, string>;
+type OppositeCharWordsTestTable = TestTableType<string, string>;
+type OppositeCharTestTable = TestTableType<string, string>;
 
-const oppositeCharWordTests: OppositeCharWordsTableT[] = [
+const oppositeCharWordTests: OppositeCharWordsTestTable[] = [
     {
         testName: "mixed case word",
         input: "CapitaL letters",
@@ -40,7 +40,7 @@ const oppositeCharWordTests: OppositeCharWordsTableT[] = [
     { testName: "m n unchanged", input: "m n", expected: "m n" },
 ];
 
-const oppositeCharTests: OppositeCharTableT[] = [
+const oppositeCharTests: OppositeCharTestTable[] = [
     { testName: "a", input: "a", expected: "z" },
     { testName: "b", input: "b", expected: "y" },
     { testName: "c", input: "c", expected: "x" },
@@ -95,13 +95,13 @@ const oppositeCharTests: OppositeCharTableT[] = [
     { testName: "Z", input: "Z", expected: "A" },
 ];
 
-describe("Opposite characters", () => {
+describe("Opposite Characters", () => {
     it.each(oppositeCharTests)("$testName", ({ input, expected }) => {
         expect(convertCharToOpposite(input)).toEqual(expected);
     });
 });
 
-describe("Opposite characters of word exercises", () => {
+describe("Opposite Characters of Words", () => {
     it.each(oppositeCharWordTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });

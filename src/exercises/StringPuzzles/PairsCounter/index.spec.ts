@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type PairsCounterTableT = TestTableWithNameType<string, string>;
+type PairsCounterTestTable = TestTableType<string, string>;
 
-const pairsCounterTests: PairsCounterTableT[] = [
+const pairsCounterTests: PairsCounterTestTable[] = [
     {
         testName: "mixed pairs and singles",
         input: "aaabbabbababaca",

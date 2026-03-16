@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@jest/globals";
 
-import { TestTableWithNameType } from "../../../types/TestTypes";
+import { TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
-type ReversedTripleCharsTableT = TestTableWithNameType<string, string>;
+type ReversedTripleCharsTestTable = TestTableType<string, string>;
 
-const reversedTripleCharTests: ReversedTripleCharsTableT[] = [
+const reversedTripleCharTests: ReversedTripleCharsTestTable[] = [
     { testName: "six chars two triplets", input: "abcdef", expected: "cbafed" },
     { testName: "single char", input: "s", expected: "s" },
     {
