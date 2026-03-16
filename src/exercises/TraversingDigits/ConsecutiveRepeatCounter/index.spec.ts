@@ -6,7 +6,7 @@ import solution from ".";
 
 type ConsecutiveRepeatCounterTestTable = TestTableType<number, number>;
 
-const consecutiveRepeateCounterTests: ConsecutiveRepeatCounterTestTable[] = [
+const consecutiveRepeatCounterTests: ConsecutiveRepeatCounterTestTable[] = [
     { testName: "two consecutive pairs", input: 113224, expected: 2 },
     { testName: "many consecutive same digits", input: 33333888, expected: 6 },
     { testName: "all different digits", input: 13579, expected: 0 },
@@ -20,7 +20,7 @@ const consecutiveRepeateCounterTests: ConsecutiveRepeatCounterTestTable[] = [
 ];
 
 describe("Consecutive Repeat Counter", () => {
-    it.each(consecutiveRepeateCounterTests)(
+    it.each(consecutiveRepeatCounterTests)(
         "$testName",
         ({ input, expected }) => {
             expect(solution(input)).toEqual(expected);
