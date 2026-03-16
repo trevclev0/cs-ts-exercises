@@ -21,7 +21,7 @@ const reversedTripleCharTests: ReversedTripleCharsTableT[] = [
     { testName: "two chars unchanged", input: "ab", expected: "ab" },
 ];
 
-describe("Special Order Skip String", () => {
+describe("Reversed Triple Chars", () => {
     it.each(reversedTripleCharTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
