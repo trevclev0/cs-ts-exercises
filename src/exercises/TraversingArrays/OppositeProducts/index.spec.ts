@@ -41,7 +41,7 @@ const oppositeProductTests: OppositeProductsTableT[] = [
     { testName: "two zeros", input: [0, 0], expected: [0] },
 ];
 
-describe("Product Array", () => {
+describe("Opposite Products", () => {
     it.each(oppositeProductTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
