@@ -3,7 +3,9 @@ export interface TestTableType<TInput, TExpected> {
     expected: TExpected;
 }
 
-export interface TestTableWithNameType<TInput, TExpected>
-    extends TestTableType<TInput, TExpected> {
+export interface TestTableWithNameType<TInput, TExpected> extends TestTableType<
+    TInput,
+    TExpected
+> {
     testName: string;
 }
