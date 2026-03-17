@@ -6083,6 +6083,7 @@ __metadata:
     prettier: "npm:3.8.1"
     typescript: "npm:^5.9.3"
     typescript-eslint: "npm:^8.57.1"
+    vite: "npm:^8.0.0"
     vitest: "npm:^4.1.0"
   languageName: unknown
   linkType: soft
@@ -7073,7 +7074,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^6.0.0 || ^7.0.0 || ^8.0.0-0":
+"vite@npm:^6.0.0 || ^7.0.0 || ^8.0.0-0, vite@npm:^8.0.0":
   version: 8.0.0
   resolution: "vite@npm:8.0.0"
   dependencies:
