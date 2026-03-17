@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# Skip during rebase or amend ($3 is a SHA in both cases)
+[ -n "$3" ] && exit 0
+
 # Only launch Commitizen if a TTY is available (i.e., a real terminal)
 if [ -t 1 ]; then
   exec < /dev/tty && yarn cz --hook || true
