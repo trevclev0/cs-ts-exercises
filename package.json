@@ -28,7 +28,7 @@
     "vitest": "^4.1.0"
   },
   "scripts": {
-    "test": "vitest",
+    "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "postinstall": "husky",
     "lint": "eslint"
