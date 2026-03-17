@@ -33,8 +33,8 @@
     "vitest": "^3.2.4"
   },
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "test:vitest": "vitest run",
     "test:vitest:watch": "vitest",
     "test:vitest:coverage": "vitest run --coverage",
