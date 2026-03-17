@@ -31,9 +31,7 @@
   "scripts": {
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:vitest": "vitest run",
-    "test:vitest:watch": "vitest",
-    "test:vitest:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
     "postinstall": "husky",
     "lint": "eslint"
   }
