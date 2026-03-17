@@ -9,7 +9,7 @@ export default defineConfig({
             exclude: [
                 ...configDefaults.exclude,
                 "src/**/*.spec.{ts,tsx}",
-                "src/**/*.d.{ts,d.tsx}",
+                "src/**/*.d.{ts,tsx}",
             ],
             reporter: ["text", "json-summary", "json"],
         },
