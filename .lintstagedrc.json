@@ -1,4 +1,4 @@
 {
-  "**/*.spec.{ts,tsx}": "yarn vitest run",
+  "**/*.spec.{ts,tsx}": "yarn vitest related --run",
   "*": "yarn lint"
 }
