@@ -1,7 +1,7 @@
 import { describe, expect, beforeEach, it } from "vitest";
 
-import { Product } from "../Product";
-import { Customer } from "../Customer";
+import { Customer } from "../../../types/Customer";
+import { Product } from "../../../types/Product";
 import { CartItemCollection } from "../CartItemCollection";
 
 import { LoyaltyPointsCalculator } from "./LoyaltyPointsCalculator";

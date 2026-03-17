@@ -1,6 +1,5 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
-
 import shopifyEslintPlugin from "@shopify/eslint-plugin";
 
 const configs = [

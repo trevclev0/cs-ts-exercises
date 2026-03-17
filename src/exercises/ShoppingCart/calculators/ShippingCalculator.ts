@@ -1,5 +1,5 @@
-import { Customer } from "../Customer";
-import { Product } from "../Product";
+import { Customer } from "../../../types/Customer";
+import { Product } from "../../../types/Product";
 import { CartItemCollection } from "../CartItemCollection";
 
 export class ShippingCalculator {

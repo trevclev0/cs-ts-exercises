@@ -1,7 +1,7 @@
 import { describe, expect, beforeEach, it } from "vitest";
 
-import { Product } from "../Product";
-import { Customer } from "../Customer";
+import { Product } from "../../../types/Product";
+import { Customer } from "../../../types/Customer";
 import { CartItemCollection } from "../CartItemCollection";
 
 import { ShippingCalculator } from "./ShippingCalculator";
