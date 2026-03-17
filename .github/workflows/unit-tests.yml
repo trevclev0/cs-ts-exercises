@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "src/**"
+      - "vitest.config.ts"
       - "package.json"
       - "yarn.lock"
       - ".github/workflows/unit-tests.yml"
