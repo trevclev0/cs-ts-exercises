@@ -1,4 +1,4 @@
-import { describe, expect, beforeEach, it } from "@jest/globals";
+import { describe, expect, beforeEach, it } from "vitest";
 
 import { Product } from "../Product";
 import { Customer } from "../Customer";
