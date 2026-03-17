@@ -1,5 +1,6 @@
-import { Product } from "./Product";
-import { Customer } from "./Customer";
+import { Customer } from "../../types/Customer";
+import { Product } from "../../types/Product";
+
 import { DiscountCalculator } from "./calculators/DiscountCalculator";
 import { PriceCalculator } from "./calculators/PriceCalculator";
 import { ShippingCalculator } from "./calculators/ShippingCalculator";
