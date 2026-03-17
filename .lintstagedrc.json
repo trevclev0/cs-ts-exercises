@@ -1,4 +1,4 @@
 {
-  "!(*config).ts": "yarn test --bail --findRelatedTests",
+  "**/*.spec.{ts,tsx}": "yarn vitest run",
   "*": "yarn lint"
 }
