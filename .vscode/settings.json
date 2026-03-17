@@ -9,9 +9,6 @@
   // Cursor's TypeScript extension settings
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "jest.runMode": {
-    "type": "on-save"
-  },
   "eslint.nodePath": ".yarn/sdks",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs"
 }
