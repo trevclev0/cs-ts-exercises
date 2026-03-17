@@ -10,8 +10,10 @@ on:
   pull_request:
     paths:
       - "src/**"
+      - "vitest.config.ts"
       - "package.json"
       - "yarn.lock"
+      - ".github/workflows/unit-tests.yml"
 
 concurrency:
   group: tests-${{ github.ref }}
