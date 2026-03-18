@@ -99,6 +99,9 @@ describe("Opposite Characters", () => {
     it.each(oppositeCharTests)("$testName", ({ input, expected }) => {
         expect(convertCharToOpposite(input)).toEqual(expected);
     });
+    it("should throw error for numeric character", () => {
+        expect(() => convertCharToOpposite("1")).toThrow("Invalid input");
+    });
 });
 
 describe("Opposite Characters of Words", () => {
