@@ -28,4 +28,10 @@ describe("Time Parser", () => {
     it("should throw error when empty string", () => {
         expect(() => solution("", 123)).toThrow("Invalid start time");
     });
+
+    it("should throw error when fast-forward seconds is negative", () => {
+        expect(() => solution("02:34:23", -5)).toThrow(
+            "Seconds to fast-forward must be positive",
+        );
+    });
 });
