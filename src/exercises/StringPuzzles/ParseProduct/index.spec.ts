@@ -103,4 +103,8 @@ describe("Parse Product", () => {
     it.each(parseProductTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
+
+    it("should throw error if no numbers are found", () => {
+        expect(() => solution("I have no numbers")).toThrow("No numbers found");
+    });
 });
