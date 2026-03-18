@@ -43,6 +43,12 @@ export default function solution(start: string, ffSecs: number): string {
     }
 
     const { hours: hrs, minutes: mins, seconds: secs } = getTimeSplit(start);
+    if (mins > 59) {
+        throw new Error("Invalid start minutes");
+    }
+    if (secs > 59) {
+        throw new Error("Invalid start seconds");
+    }
     const { hours: hrA, minutes: minA, seconds: secA } = getTimeToAdd(ffSecs);
     const { hours, minutes, seconds } = toTimeSplitString(
         hrs + hrA,
