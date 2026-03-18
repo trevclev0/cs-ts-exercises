@@ -35,6 +35,12 @@ const characterRotationTests: CharacterRotationTestTable[] = [
         input: "ZzZzZzZ 1234567890 zYxWvUtS",
         expected: "ZZzZzZz 0123456789 SzYxWvUt",
     },
+    {
+        testName: "should rotate characters of sentence with 100 chars",
+        input: "The quick brown fox jumped over the lazy dogs, and then it ran away into the quiet, dark night now?!",
+        expected:
+            "eTh kquic nbrow xfo djumpe rove eth ylaz ,dogs dan nthe ti nra yawa oint eth ,quiet kdar tnigh !now?",
+    },
 ];
 
 describe("Rotation of Characters of Words", () => {
@@ -44,5 +50,10 @@ describe("Rotation of Characters of Words", () => {
 
     it("should throw error for empty string", () => {
         expect(() => solution("")).toThrow("Invalid input length");
+    });
+
+    it("should throw error string that is more than 100 characters", () => {
+        const strWith101Chars = `${characterRotationTests[8].input}!`;
+        expect(() => solution(strWith101Chars)).toThrow("Invalid input length");
     });
 });
