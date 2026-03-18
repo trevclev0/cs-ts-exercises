@@ -46,4 +46,12 @@ describe("Time Parser", () => {
             "Seconds to fast-forward must be an integer",
         );
     });
+
+    it("should throw error when seconds is greater than 59", () => {
+        expect(() => solution("92:23:60", 3)).toThrow("Invalid start seconds");
+    });
+
+    it("should throw error when seconds is greater than 59", () => {
+        expect(() => solution("2:203:02", 3)).toThrow("Invalid start minutes");
+    });
 });
