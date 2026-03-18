@@ -10,19 +10,8 @@ export function convertCharToOpposite(char: string): string {
 
     const charCode = char.charCodeAt(0);
     const isLowerCase = charCode >= 97 && charCode <= 122;
-    const isUpperCase = charCode >= 65 && charCode <= 90;
-    let offset: number;
-    let lastCharCodeInRange: number;
-
-    if (isLowerCase) {
-        offset = charCode - 97;
-        lastCharCodeInRange = 122;
-    } else if (isUpperCase) {
-        offset = charCode - 65;
-        lastCharCodeInRange = 90;
-    } else {
-        throw new Error("Invalid input");
-    }
+    const offset = isLowerCase ? charCode - 97 : charCode - 65;
+    const lastCharCodeInRange = isLowerCase ? 122 : 90;
 
     return String.fromCharCode(lastCharCodeInRange - offset);
 }
