@@ -113,7 +113,8 @@ describe("Opposite Characters of Words", () => {
     it.each(oppositeCharWordTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
-    it("should handle empty string", () => {
+
+    it("should throw error for empty string", () => {
         expect(() => solution("")).toThrow("Invalid input");
     });
 });
