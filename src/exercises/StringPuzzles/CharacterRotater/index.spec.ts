@@ -41,6 +41,11 @@ const characterRotationTests: CharacterRotationTestTable[] = [
         expected:
             "eTh kquic nbrow xfo djumpe rove eth ylaz ,dogs dan nthe ti nra yawa oint eth ,quiet kdar tnigh !now?",
     },
+    {
+        testName: "should find empty string for string of only whitespace",
+        input: "\f\n\r\t\v\u0020\u00a0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u2028\u2029\u202f\u205f\u3000\ufeff",
+        expected: "",
+    },
 ];
 
 describe("Rotation of Characters of Words", () => {
@@ -53,7 +58,7 @@ describe("Rotation of Characters of Words", () => {
     });
 
     it("should throw error string that is more than 100 characters", () => {
-        const strWith101Chars = 'a'.repeat(101);
+        const strWith101Chars = "a".repeat(101);
         expect(() => solution(strWith101Chars)).toThrow("Invalid input length");
     });
 });
