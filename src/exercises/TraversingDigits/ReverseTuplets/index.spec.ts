@@ -57,6 +57,11 @@ const reverseTupletsTests: ReverseTupletsTestTable[] = [
             [88888, 88888],
         ],
     },
+    {
+        testName: "returns empty array for non-reversible pairs",
+        input: [123, 456],
+        expected: [],
+    },
 ];
 
 describe("Reverse Tuplets", () => {
