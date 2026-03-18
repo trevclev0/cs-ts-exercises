@@ -15,6 +15,6 @@ export class DiscountCalculator {
 
     calculateDiscount(subtotal: number): number {
         if (!this.discountCode) return 0;
-        return subtotal * (this.DISCOUNT_RATES[this.discountCode] || 0);
+        return subtotal * this.DISCOUNT_RATES[this.discountCode];
     }
 }
