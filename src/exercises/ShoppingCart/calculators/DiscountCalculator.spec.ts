@@ -37,7 +37,9 @@ describe("DiscountCalculator", () => {
         "throws error for invalid discount code %s",
         (invalidCode) => {
             // Act, Assert
-            expect(() => calculator.applyDiscountCode(invalidCode)).toThrow();
+            expect(() => calculator.applyDiscountCode(invalidCode)).toThrow(
+                "Invalid discount code",
+            );
         },
     );
 });
