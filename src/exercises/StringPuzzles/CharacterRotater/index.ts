@@ -1,18 +1,15 @@
 function rotateChars(str: string): string {
-    const chars = str.split("");
-    const lastChar = chars.pop();
-
-    return lastChar + chars.join("");
+    return str[str.length - 1] + str.slice(0, -1);
 }
 
 export default function characterRotater(input: string): string {
     const words: string[] = input.trim().replace(/\s+/g, " ").split(" ");
 
-    if (input.length < 1 || words.length > 100) {
+    if (input.length < 1 || input.length > 100) {
         throw new Error("Invalid input length");
     }
 
-    const rotatedWords = words.map((word: string) => rotateChars(word));
+    const rotatedWords = words.map((word) => rotateChars(word));
 
     return rotatedWords.join(" ");
 }
