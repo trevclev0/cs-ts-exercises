@@ -43,6 +43,6 @@ describe("Rotation of Characters of Words", () => {
     });
 
     it("should throw error for empty string", () => {
-        expect(() => solution("")).toThrow("Invalid input");
+        expect(() => solution("")).toThrow("Invalid input length");
     });
 });

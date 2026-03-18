@@ -1,5 +1,5 @@
 function rotateChars(str: string): string {
-    return str[str.length - 1] + str.slice(0, -1);
+    return str ? str[str.length - 1] + str.slice(0, -1) : "";
 }
 
 export default function characterRotater(input: string): string {
