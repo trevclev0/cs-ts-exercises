@@ -53,7 +53,7 @@ describe("Rotation of Characters of Words", () => {
     });
 
     it("should throw error string that is more than 100 characters", () => {
-        const strWith101Chars = `${characterRotationTests[8].input}!`;
+        const strWith101Chars = 'a'.repeat(101);
         expect(() => solution(strWith101Chars)).toThrow("Invalid input length");
     });
 });
