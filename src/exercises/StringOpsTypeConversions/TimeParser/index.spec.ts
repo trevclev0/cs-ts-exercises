@@ -36,7 +36,13 @@ describe("Time Parser", () => {
     });
 
     it("should throw error when fast-forward seconds is non-integer", () => {
-        expect(() => solution("01:33:29", 5.8)).toThrow(
+        expect(() => solution("01:33:29", NaN)).toThrow(
+            "Seconds to fast-forward must be an integer",
+        );
+    });
+
+    it("should throw error when fast-forward seconds is decimal", () => {
+        expect(() => solution("12:28:21", 9.1)).toThrow(
             "Seconds to fast-forward must be an integer",
         );
     });
