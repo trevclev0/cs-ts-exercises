@@ -35,6 +35,9 @@ export default function solution(start: string, ffSecs: number): string {
     if (start === "") {
         throw new Error("Invalid start time");
     }
+    if (ffSecs < 0) {
+        throw new Error("Seconds to fast-forward must be positive");
+    }
 
     const { hours: hrs, minutes: mins, seconds: secs } = getTimeSplit(start);
     const { hours: hrA, minutes: minA, seconds: secA } = getTimeToAdd(ffSecs);
