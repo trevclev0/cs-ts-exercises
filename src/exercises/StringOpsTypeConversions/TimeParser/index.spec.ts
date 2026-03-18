@@ -34,4 +34,10 @@ describe("Time Parser", () => {
             "Seconds to fast-forward must be positive",
         );
     });
+
+    it("should throw error when fast-forward seconds is non-integer", () => {
+        expect(() => solution("01:33:29", 5.8)).toThrow(
+            "Seconds to fast-forward must be an integer",
+        );
+    });
 });
