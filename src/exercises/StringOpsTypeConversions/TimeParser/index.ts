@@ -38,6 +38,9 @@ export default function solution(start: string, ffSecs: number): string {
     if (ffSecs < 0) {
         throw new Error("Seconds to fast-forward must be positive");
     }
+    if (!Number.isInteger(ffSecs)) {
+        throw new Error("Seconds to fast-forward must be an integer");
+    }
 
     const { hours: hrs, minutes: mins, seconds: secs } = getTimeSplit(start);
     const { hours: hrA, minutes: minA, seconds: secA } = getTimeToAdd(ffSecs);
