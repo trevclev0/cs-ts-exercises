@@ -41,4 +41,8 @@ describe("Rotation of Characters of Words", () => {
     it.each(characterRotationTests)("$testName", ({ input, expected }) => {
         expect(solution(input)).toEqual(expected);
     });
+
+    it("should throw error for empty string", () => {
+        expect(() => solution("")).toThrow("Invalid input");
+    });
 });
