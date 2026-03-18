@@ -24,4 +24,8 @@ describe("Time Parser", () => {
         const { start, ffSecs } = input;
         expect(solution(start, ffSecs)).toEqual(expected);
     });
+
+    it("should throw error when empty string", () => {
+        expect(() => solution("", 123)).toThrow("Invalid start time");
+    });
 });

@@ -32,6 +32,10 @@ function toTimeSplitString(hr: number, min: number, sec: number): TimeSplitStr {
 }
 
 export default function solution(start: string, ffSecs: number): string {
+    if (start === "") {
+        throw new Error("Invalid start time");
+    }
+
     const { hours: hrs, minutes: mins, seconds: secs } = getTimeSplit(start);
     const { hours: hrA, minutes: minA, seconds: secA } = getTimeToAdd(ffSecs);
     const { hours, minutes, seconds } = toTimeSplitString(
