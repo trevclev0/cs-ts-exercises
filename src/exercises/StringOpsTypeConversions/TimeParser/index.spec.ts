@@ -54,4 +54,16 @@ describe("Time Parser", () => {
     it("should throw error when seconds is greater than 59", () => {
         expect(() => solution("2:203:02", 3)).toThrow("Invalid start minutes");
     });
+
+    it("should throw error when seconds is negative", () => {
+        expect(() => solution("92:23:-09", 3)).toThrow("Invalid start seconds");
+    });
+
+    it("should throw error when minutes is negative", () => {
+        expect(() => solution("2:-03:02", 3)).toThrow("Invalid start minutes");
+    });
+
+    it("should throw error when hours is negative", () => {
+        expect(() => solution("-2:38:28", 3)).toThrow("Invalid start hours");
+    });
 });
