@@ -99,6 +99,11 @@ describe("Opposite Characters", () => {
     it.each(oppositeCharTests)("$testName", ({ input, expected }) => {
         expect(convertCharToOpposite(input)).toEqual(expected);
     });
+
+    it("should throw error for empty string", () => {
+        expect(() => convertCharToOpposite("")).toThrow("Invalid input length");
+    });
+
     it("should throw error for numeric character", () => {
         expect(() => convertCharToOpposite("1")).toThrow("Invalid input");
     });
