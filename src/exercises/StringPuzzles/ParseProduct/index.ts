@@ -7,7 +7,5 @@ export default function solution(input: string): number {
         throw new Error("No numbers found");
     }
 
-    const nums = match.map((num) => Number(num));
-
-    return nums.reduce((acc, num) => acc * num, 1);
+    return match.reduce((acc, num) => acc * Number(num), 1);
 }
