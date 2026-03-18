@@ -136,6 +136,19 @@ describe("ShoppingCart", () => {
             expect(summary.subtotal).toBe(0);
         });
 
+        it("should successfully remove items", () => {
+            // Arrange
+            const laptop = products[0];
+            cart.addItem(laptop, 1);
+
+            // Act
+            cart.removeItem(laptop.id);
+            const summary = cart.getOrderSummary(products);
+
+            // Assert
+            expect(summary.subtotal).toBe(0);
+        });
+
         it("should throw error for out of stock items", () => {
             // Arrange
             const outOfStockProduct = { ...products[0], inStock: false };
