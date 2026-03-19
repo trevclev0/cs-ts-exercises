@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { TestTableType } from "../../../types/TestTypes";
+import { ErrorTableType, TestTableType } from "../../../types/TestTypes";
 
 import solution from ".";
 
@@ -10,6 +10,7 @@ interface SolutionParams {
 }
 
 type TimeParseTestTable = TestTableType<SolutionParams, string>;
+type TimeParseErrorTable = ErrorTableType<SolutionParams>;
 
 const timeParseTests: TimeParseTestTable[] = [
     {
@@ -19,51 +20,96 @@ const timeParseTests: TimeParseTestTable[] = [
     },
 ];
 
+const invalidStartTimeTests: TimeParseErrorTable[] = [
+    {
+        testName: "errors when empty string",
+        input: { start: "", ffSecs: 1 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when seconds is greater than 59",
+        input: { start: "00:00:60", ffSecs: 2 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when minutes is greater than 59",
+        input: { start: "00:60:00", ffSecs: 3 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when seconds is negative",
+        input: { start: "00:00:-01", ffSecs: 4 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when minutes is negative",
+        input: { start: "00:-10:00", ffSecs: 5 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when hours is negative",
+        input: { start: "-10:00:00", ffSecs: 6 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when seconds is decimal",
+        input: { start: "00:00:1.2", ffSecs: 7 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when minutes is decimal",
+        input: { start: "00:0.2:00", ffSecs: 8 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when hours is decimal",
+        input: { start: "5.3:00:00", ffSecs: 9 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when seconds is empty",
+        input: { start: "00:00:", ffSecs: 10 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when minutes is empty",
+        input: { start: "00::00", ffSecs: 11 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when hours is empty",
+        input: { start: ":00:00", ffSecs: 12 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when fast-forward seconds is negative",
+        input: { start: "00:00:00", ffSecs: -1 },
+        errorMsg: "Invalid fast-forward seconds",
+    },
+    {
+        testName: "errors when fast-forward seconds is non-integer",
+        input: { start: "00:00:00", ffSecs: NaN },
+        errorMsg: "Invalid fast-forward seconds",
+    },
+    {
+        testName: "errors when fast-forward seconds is decimal",
+        input: { start: "00:00:00", ffSecs: -1 },
+        errorMsg: "Invalid fast-forward seconds",
+    },
+];
+
 describe("Time Parser", () => {
-    it.each(timeParseTests)("$testName", ({ input, expected }) => {
-        const { start, ffSecs } = input;
-        expect(solution(start, ffSecs)).toEqual(expected);
+    describe("Successful parsing", () => {
+        it.each(timeParseTests)("$testName", ({ input, expected }) => {
+            const { start, ffSecs } = input;
+            expect(solution(start, ffSecs)).toEqual(expected);
+        });
     });
 
-    it("should throw error when empty string", () => {
-        expect(() => solution("", 123)).toThrow("Invalid start time");
-    });
-
-    it("should throw error when fast-forward seconds is negative", () => {
-        expect(() => solution("02:34:23", -5)).toThrow(
-            "Seconds to fast-forward must be positive",
-        );
-    });
-
-    it("should throw error when fast-forward seconds is non-integer", () => {
-        expect(() => solution("01:33:29", NaN)).toThrow(
-            "Seconds to fast-forward must be an integer",
-        );
-    });
-
-    it("should throw error when fast-forward seconds is decimal", () => {
-        expect(() => solution("12:28:21", 9.1)).toThrow(
-            "Seconds to fast-forward must be an integer",
-        );
-    });
-
-    it("should throw error when seconds is greater than 59", () => {
-        expect(() => solution("92:23:60", 3)).toThrow("Invalid start seconds");
-    });
-
-    it("should throw error when seconds is greater than 59", () => {
-        expect(() => solution("2:203:02", 3)).toThrow("Invalid start minutes");
-    });
-
-    it("should throw error when seconds is negative", () => {
-        expect(() => solution("92:23:-09", 3)).toThrow("Invalid start seconds");
-    });
-
-    it("should throw error when minutes is negative", () => {
-        expect(() => solution("2:-03:02", 3)).toThrow("Invalid start minutes");
-    });
-
-    it("should throw error when hours is negative", () => {
-        expect(() => solution("-2:38:28", 3)).toThrow("Invalid start hours");
+    describe("Error catching", () => {
+        it.each(invalidStartTimeTests)("$testName", ({ input, errorMsg }) => {
+            const { start, ffSecs } = input;
+            expect(() => solution(start, ffSecs)).toThrow(errorMsg);
+        });
     });
 });
