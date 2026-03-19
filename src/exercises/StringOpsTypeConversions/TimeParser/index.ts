@@ -2,6 +2,13 @@ import { TimeSplit, TimeSplitStr } from "../../../types/Time";
 
 const SECONDS_PER_MINUTE = 60;
 const SECONDS_PER_HOUR = 60 * SECONDS_PER_MINUTE;
+// Valid time structure is one which has:
+// - Only digits and semicolons
+// - Hours can be one or more of digits
+// - Minutes can only have to two digits
+// - Seconds can only have to two digits
+// Other time validation is performed elsewhere
+const VALID_TIME_STRUCTURE_REGEX = /^\d+:[0-5]\d:[0-5]\d$/;
 
 function getTimeSplit(inputTime: string): TimeSplit {
     const [hoursString, minutesString, secondsString] = inputTime.split(":");
@@ -32,24 +39,22 @@ function toTimeSplitString(hr: number, min: number, sec: number): TimeSplitStr {
 }
 
 export default function solution(start: string, ffSecs: number): string {
-    if (start === "") {
+    if (start === "" || !start.match(VALID_TIME_STRUCTURE_REGEX)) {
         throw new Error("Invalid start time");
     }
-    if (ffSecs < 0) {
-        throw new Error("Seconds to fast-forward must be positive");
-    }
-    if (!Number.isInteger(ffSecs)) {
-        throw new Error("Seconds to fast-forward must be an integer");
+    if (!Number.isInteger(ffSecs) || ffSecs < 0) {
+        throw new Error("Invalid fast-forward seconds");
     }
 
     const { hours: hrs, minutes: mins, seconds: secs } = getTimeSplit(start);
-    if (mins < 0 || mins > 59) {
+
+    if (mins > 59) {
         throw new Error("Invalid start minutes");
     }
-    if (secs < 0 || secs > 59) {
+    if (secs > 59) {
         throw new Error("Invalid start seconds");
     }
-    if (hrs < 0 || hrs > 59) {
+    if (hrs > 59) {
         throw new Error("Invalid start hours");
     }
     const { hours: hrA, minutes: minA, seconds: secA } = getTimeToAdd(ffSecs);
