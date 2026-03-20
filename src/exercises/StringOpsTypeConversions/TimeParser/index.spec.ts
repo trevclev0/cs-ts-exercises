@@ -43,6 +43,16 @@ const timeParseTests: TimeParseTestTable[] = [
         input: { start: "00:00:00", ffSecs: 0 },
         expected: "00:00:00",
     },
+    {
+        testName: "adds 86399 fast-forward seconds to 00:00:00",
+        input: { start: "00:00:00", ffSecs: 86399 },
+        expected: "23:59:59",
+    },
+    {
+        testName: "errors when fast-forward seconds is 24 hours",
+        input: { start: "00:00:00", ffSecs: 86400 },
+        expected: "00:00:00",
+    },
 ];
 
 const invalidStartTimeTests: TimeParseErrorTable[] = [
@@ -129,6 +139,11 @@ const invalidStartTimeTests: TimeParseErrorTable[] = [
     {
         testName: "errors when fast-forward seconds is decimal",
         input: { start: "00:00:00", ffSecs: 1.5 },
+        errorMsg: "Invalid fast-forward seconds",
+    },
+    {
+        testName: "errors when fast-forward seconds exceeds 24 hours",
+        input: { start: "00:00:00", ffSecs: 86401 },
         errorMsg: "Invalid fast-forward seconds",
     },
 ];
