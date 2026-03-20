@@ -1,5 +1,7 @@
+import addSecondsToTime from "../TimeParser";
+
 const solution = (timePoints: string[], ffSecs: number): string[] => {
-    return ["0"];
+    return timePoints.map((timePoint) => addSecondsToTime(timePoint, ffSecs));
 };
 
 export default solution;
