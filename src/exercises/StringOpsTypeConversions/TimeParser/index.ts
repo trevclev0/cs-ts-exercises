@@ -76,7 +76,7 @@ export default function solution(startTime: string, ffSecs: number): string {
         throw new Error("Invalid start time");
     }
 
-    if (!Number.isInteger(ffSecs) || ffSecs < 0) {
+    if (!Number.isInteger(ffSecs) || ffSecs < 0 || ffSecs > 86400) {
         throw new Error("Invalid fast-forward seconds");
     }
 
