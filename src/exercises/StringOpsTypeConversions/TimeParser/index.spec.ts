@@ -18,6 +18,26 @@ const timeParseTests: TimeParseTestTable[] = [
         input: { start: "05:10:30", ffSecs: 123 },
         expected: "05:12:33",
     },
+    {
+        testName: "adds 2 hours to 20:00:00",
+        input: { start: "20:00:00", ffSecs: 7200 },
+        expected: "22:00:00",
+    },
+    {
+        testName: "adds 30 seconds to 00:00:34",
+        input: { start: "00:00:34", ffSecs: 30 },
+        expected: "00:01:04",
+    },
+    {
+        testName: "adds 30 minutes to 00:34:34",
+        input: { start: "00:34:34", ffSecs: 1800 },
+        expected: "01:04:34",
+    },
+    {
+        testName: "adds 1 second to 23:59:59",
+        input: { start: "23:59:59", ffSecs: 1 },
+        expected: "00:00:00",
+    },
 ];
 
 const invalidStartTimeTests: TimeParseErrorTable[] = [
@@ -34,6 +54,16 @@ const invalidStartTimeTests: TimeParseErrorTable[] = [
     {
         testName: "errors when minutes is greater than 59",
         input: { start: "00:60:00", ffSecs: 3 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when hours first digit is greater than 2",
+        input: { start: "48:00:00", ffSecs: 3 },
+        errorMsg: "Invalid start time",
+    },
+    {
+        testName: "errors when hours is 24",
+        input: { start: "24:00:00", ffSecs: 3 },
         errorMsg: "Invalid start time",
     },
     {
