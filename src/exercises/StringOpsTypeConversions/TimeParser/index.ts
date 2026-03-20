@@ -7,7 +7,7 @@ const toTimeNum = (input: string): number => Number.parseInt(input, 10);
 const toTimeStr = (input: number): string => String(input).padStart(2, "0");
 
 // Valid time structure is one which has:
-// - Only digits and semicolons
+// - Only digits and colons
 // - Hours must be two digits and can range from 00 to 23
 // - Minutes must have two digits and can range from 00 to 59
 // - Seconds must have two digits and can range from 00 to 59
