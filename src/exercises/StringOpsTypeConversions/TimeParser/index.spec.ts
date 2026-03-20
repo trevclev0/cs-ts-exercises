@@ -49,7 +49,7 @@ const timeParseTests: TimeParseTestTable[] = [
         expected: "23:59:59",
     },
     {
-        testName: "errors when fast-forward seconds is 24 hours",
+        testName: "wraps to same time when fast-forward seconds is 24 hours",
         input: { start: "00:00:00", ffSecs: 86400 },
         expected: "00:00:00",
     },
