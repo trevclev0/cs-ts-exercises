@@ -38,6 +38,11 @@ const timeParseTests: TimeParseTestTable[] = [
         input: { start: "23:59:59", ffSecs: 1 },
         expected: "00:00:00",
     },
+    {
+        testName: "adds 0 seconds to 00:00:00",
+        input: { start: "00:00:00", ffSecs: 0 },
+        expected: "00:00:00",
+    },
 ];
 
 const invalidStartTimeTests: TimeParseErrorTable[] = [
