@@ -1,8 +1,9 @@
 import { TimeSplit, TimeSplitStr } from "../../../types/Time";
 
+const HRS_PER_DAY = 24;
 const SECS_PER_MIN = 60;
 const SECS_PER_HR = 60 * SECS_PER_MIN;
-const HRS_PER_DAY = 24;
+const SECS_PER_DAY = HRS_PER_DAY * SECS_PER_HR;
 const toTimeNum = (input: string): number => Number.parseInt(input, 10);
 const toTimeStr = (input: number): string => String(input).padStart(2, "0");
 
@@ -76,7 +77,7 @@ export default function solution(startTime: string, ffSecs: number): string {
         throw new Error("Invalid start time");
     }
 
-    if (!Number.isInteger(ffSecs) || ffSecs < 0 || ffSecs > 86400) {
+    if (!Number.isInteger(ffSecs) || ffSecs < 0 || ffSecs > SECS_PER_DAY) {
         throw new Error("Invalid fast-forward seconds");
     }
 
