@@ -123,7 +123,7 @@ const invalidStartTimeTests: TimeParseErrorTable[] = [
     },
     {
         testName: "errors when fast-forward seconds is decimal",
-        input: { start: "00:00:00", ffSecs: -1 },
+        input: { start: "00:00:00", ffSecs: 1.5 },
         errorMsg: "Invalid fast-forward seconds",
     },
 ];
