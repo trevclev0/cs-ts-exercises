@@ -13,7 +13,7 @@ const toTimeStr = (input: number): string => String(input).padStart(2, "0");
 // - Minutes must have two digits and can range from 00 to 59
 // - Seconds must have two digits and can range from 00 to 59
 // Other time validation is performed elsewhere
-const VALID_TIME_STRUCTURE_REGEX = /^([01]\d|2[0-3]):[0-5]\d:[0-5]\d$/;
+const VALID_TIME_STRUCTURE_REGEX = /^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/;
 
 /**
  * Splits a given time string into its component hours, minutes, and seconds.
