@@ -1,6 +1,6 @@
 import {
     getTimeSplit,
-    MINS_PER_HR,
+    SECS_PER_MIN,
     timeSplitToSecs,
 } from "../../../utils/time";
 
@@ -24,27 +24,16 @@ export default function solution(input: string): number {
 
     const { startTime, endTime } = match.groups;
     const startTimeSplit = getTimeSplit(startTime);
-    const { hours: sHrs, minutes: startMins, seconds: sSecs } = startTimeSplit;
-    const startSecs = timeSplitToSecs({
-        hours: sHrs,
-        minutes: startMins,
-        seconds: sSecs,
-    });
+    const startSecs = timeSplitToSecs(startTimeSplit);
     const endTimeSplit = getTimeSplit(endTime);
-    const { hours: eHrs, minutes: endMins, seconds: eSecs } = endTimeSplit;
-    const endSecs = timeSplitToSecs({
-        hours: eHrs,
-        minutes: endMins,
-        seconds: eSecs,
-    });
+    const endSecs = timeSplitToSecs(endTimeSplit);
 
     if (startSecs > endSecs) {
         throw new Error("Start time must be before end time");
     }
 
-    const diffSplitMins = endMins - startMins;
-    const diffSplitHrs = eHrs - sHrs;
-    const timePeriodMins = diffSplitMins + diffSplitHrs * MINS_PER_HR;
-
-    return timePeriodMins;
+    return (
+        Math.floor(endSecs / SECS_PER_MIN) -
+        Math.floor(startSecs / SECS_PER_MIN)
+    );
 }
