@@ -6,57 +6,57 @@ import solution from ".";
 
 const timePeriodTests: TestTableType<string, number>[] = [
     {
-        testName: "start: 12:15:00, end: 12:16:59, duration: 1min 59s",
+        testName: "start: 12:15:00, end: 12:16:59",
         input: "12:15:00 - 12:16:59",
         expected: 1,
     },
     {
-        testName: "start: 12:14:59, end: 12:15:00, duration: 1s",
+        testName: "start: 12:14:59, end: 12:15:00",
         input: "12:14:59 - 12:15:00",
         expected: 1,
     },
     {
-        testName: "start: 00:00:00, end: 00:00:01, duration: 1s",
+        testName: "start: 00:00:00, end: 00:00:01",
         input: "00:00:00 - 00:00:01",
         expected: 0,
     },
     {
-        testName: "start: 00:00:00, end: 00:01:00, duration: 1min",
+        testName: "start: 00:00:00, end: 00:01:00",
         input: "00:00:00 - 00:01:00",
         expected: 1,
     },
     {
-        testName: "start: 00:59:59, end: 01:00:00, duration: 1s",
+        testName: "start: 00:59:59, end: 01:00:00",
         input: "00:59:59 - 01:00:00",
         expected: 1,
     },
     {
-        testName: "start: 00:00:00, end: 23:59:59, duration: 23hr 59min 59s",
+        testName: "start: 00:00:00, end: 23:59:59",
         input: "00:00:00 - 23:59:59",
         expected: 1439,
     },
     {
-        testName: "start: 01:05:05, end: 16:30:50, duration: 15hr 25min 45s",
+        testName: "start: 01:05:05, end: 16:30:50",
         input: "01:05:05 - 16:30:50",
         expected: 925,
     },
     {
-        testName: "start: 12:15:30, end: 14:00:00, duration: 1hr 44min 30s",
+        testName: "start: 12:15:30, end: 14:00:00",
         input: "12:15:30 - 14:00:00",
         expected: 105,
     },
     {
-        testName: "start: 02:45:20, end: 06:37:35, duration: 3hr 52min 15s",
+        testName: "start: 02:45:20, end: 06:37:35",
         input: "02:45:20 - 06:37:35",
         expected: 232,
     },
     {
-        testName: "start: 00:00:00, end: 00:00:00, duration: 0s",
+        testName: "start: 00:00:00, end: 00:00:00",
         input: "00:00:00 - 00:00:00",
         expected: 0,
     },
     {
-        testName: "start: 01:00:00, end: 02:00:00, duration: 1hr",
+        testName: "start: 01:00:00, end: 02:00:00",
         input: "01:00:00 - 02:00:00",
         expected: 60,
     },
