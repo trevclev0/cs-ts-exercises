@@ -11,10 +11,10 @@ const TIME_PERIOD_REGEX =
     /^(?<startTime>(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d) - (?<endTime>(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d)$/;
 
 /**
- * Takes a time period in the format HH:MM:SS - HH:MM:SS and returns the duration of the time period in minutes.
+ * Takes a time period in the format HH:MM:SS - HH:MM:SS and returns the difference in minutes between them, ignoring seconds.
  * Throws an error if the input is invalid or the start time is after the end time.
  * @param {string} input - The time period in the format HH:MM:SS - HH:MM:SS
- * @returns {number} - The duration of the time period in minutes
+ * @returns {number} - The difference in minutes between the start and end time.
  */
 export default function solution(input: string): number {
     const match = input.match(TIME_PERIOD_REGEX);
