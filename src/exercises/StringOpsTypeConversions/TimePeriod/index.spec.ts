@@ -50,6 +50,16 @@ const timePeriodTests: TestTableType<string, number>[] = [
         input: "02:45:20 - 06:37:35",
         expected: 232,
     },
+    {
+        testName: "start: 00:00:00, end: 00:00:00, duration: 0s",
+        input: "00:00:00 - 00:00:00",
+        expected: 0,
+    },
+    {
+        testName: "start: 01:00:00, end: 02:00:00, duration: 1hr",
+        input: "01:00:00 - 02:00:00",
+        expected: 60,
+    },
 ];
 
 const timePeriodErrorTests: ErrorTableType<string>[] = [
@@ -64,8 +74,33 @@ const timePeriodErrorTests: ErrorTableType<string>[] = [
         errorMsg: "Invalid input",
     },
     {
+        testName: "invalid hours",
+        input: "24:00:00 - 25:00:00",
+        errorMsg: "Invalid input",
+    },
+    {
+        testName: "invalid minutes",
+        input: "12:60:00 - 12:61:00",
+        errorMsg: "Invalid input",
+    },
+    {
+        testName: "missing seconds",
+        input: "12:00 - 13:00",
+        errorMsg: "Invalid input",
+    },
+    {
+        testName: "extra whitespace",
+        input: " 12:00:00 - 13:00:00 ",
+        errorMsg: "Invalid input",
+    },
+    {
         testName: "start time greater than end time",
         input: "03:00:00 - 01:00:00",
+        errorMsg: "Start time must be before end time",
+    },
+    {
+        testName: "start time greater than end time (within same hour)",
+        input: "01:30:00 - 01:00:00",
         errorMsg: "Start time must be before end time",
     },
 ];
