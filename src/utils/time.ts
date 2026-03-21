@@ -12,11 +12,21 @@ const toTimeNum = (input: string): number => Number.parseInt(input, 10);
  * @param {string} inputTime The time string to split, in the format HH:MM:SS
  * @returns {TimeSplit} A TimeSplit object containing the hours, minutes, and seconds
  */
-const getTimeSplit = (inputTime: string): TimeSplit => {
-    const [hoursString, minutesString, secondsString] = inputTime.split(":");
+export const getTimeSplit = (inputTime: string): TimeSplit => {
+    const parts = inputTime.split(":");
+
+    if (parts.length !== 3) {
+        throw new Error("Invalid time format");
+    }
+
+    const [hoursString, minutesString, secondsString] = parts;
     const hours = toTimeNum(hoursString);
     const minutes = toTimeNum(minutesString);
     const seconds = toTimeNum(secondsString);
+
+    if ([hours, minutes, seconds].some((value) => Number.isNaN(value))) {
+        throw new Error("Invalid time format");
+    }
 
     return { hours, minutes, seconds };
 };
@@ -26,7 +36,8 @@ const getTimeSplit = (inputTime: string): TimeSplit => {
  * @param {TimeSplit} timeSplit The TimeSplit object to convert
  * @returns The number of seconds represented by the TimeSplit object
  */
-const timeSplitToSecs = ({ hours, minutes, seconds }: TimeSplit): number => {
+export const timeSplitToSecs = (timeSplit: TimeSplit): number => {
+    const { hours, minutes, seconds } = timeSplit;
     return hours * SECS_PER_HR + minutes * SECS_PER_MIN + seconds;
 };
 
@@ -35,12 +46,10 @@ const timeSplitToSecs = ({ hours, minutes, seconds }: TimeSplit): number => {
  * @param {number} input The number of seconds to convert
  * @returns {TimeSplit} A TimeSplit object representing the time
  */
-const secsToTimeSplit = (input: number): TimeSplit => {
+export const secsToTimeSplit = (input: number): TimeSplit => {
     const hours = Math.floor(input / SECS_PER_HR) % HRS_PER_DAY;
     const minutes = Math.floor((input % SECS_PER_HR) / SECS_PER_MIN);
     const seconds = input % SECS_PER_MIN;
 
     return { hours, minutes, seconds };
 };
-
-export { getTimeSplit, timeSplitToSecs, secsToTimeSplit };
