@@ -1,10 +1,13 @@
 import { TimeSplit, TimeSplitStr } from "../../../types/Time";
+import {
+    getTimeSplit,
+    HRS_PER_DAY,
+    SECS_PER_HR,
+    secsToTimeSplit,
+    timeSplitToSecs,
+} from "../../../utils/time";
 
-const HRS_PER_DAY = 24;
-const SECS_PER_MIN = 60;
-const SECS_PER_HR = 60 * SECS_PER_MIN;
 const SECS_PER_DAY = HRS_PER_DAY * SECS_PER_HR;
-const toTimeNum = (input: string): number => Number.parseInt(input, 10);
 const toTimeStr = (input: number): string => String(input).padStart(2, "0");
 
 // Valid time structure is one which has:
@@ -14,42 +17,6 @@ const toTimeStr = (input: number): string => String(input).padStart(2, "0");
 // - Seconds must have two digits and can range from 00 to 59
 // Other time validation is performed elsewhere
 const VALID_TIME_STRUCTURE_REGEX = /^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/;
-
-/**
- * Splits a given time string into its component hours, minutes, and seconds.
- * @param {string} inputTime The time string to split, in the format HH:MM:SS
- * @returns {TimeSplit} A TimeSplit object containing the hours, minutes, and seconds
- */
-const getTimeSplit = (inputTime: string): TimeSplit => {
-    const [hoursString, minutesString, secondsString] = inputTime.split(":");
-    const hours = toTimeNum(hoursString);
-    const minutes = toTimeNum(minutesString);
-    const seconds = toTimeNum(secondsString);
-
-    return { hours, minutes, seconds };
-};
-
-/**
- * Converts a given number of seconds into a TimeSplit object, which represents the time as hours, minutes, and seconds.
- * @param {number} input The number of seconds to convert
- * @returns {TimeSplit} A TimeSplit object representing the time
- */
-const secsToTimeSplit = (input: number): TimeSplit => {
-    const hours = Math.floor(input / SECS_PER_HR) % HRS_PER_DAY;
-    const minutes = Math.floor((input % SECS_PER_HR) / SECS_PER_MIN);
-    const seconds = input % SECS_PER_MIN;
-
-    return { hours, minutes, seconds };
-};
-
-/**
- * Converts a given TimeSplit object, which represents the time as hours, minutes, and seconds, into a number of seconds.
- * @param {TimeSplit} timeSplit The TimeSplit object to convert
- * @returns The number of seconds represented by the TimeSplit object
- */
-const timeSplitToSecs = ({ hours, minutes, seconds }: TimeSplit): number => {
-    return hours * SECS_PER_HR + minutes * SECS_PER_MIN + seconds;
-};
 
 /**
  * Converts a given TimeSplit object into a TimeSplitStr object, which represents the time as a string with hours, minutes, and seconds.
