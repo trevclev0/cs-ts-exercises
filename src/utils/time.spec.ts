@@ -70,46 +70,6 @@ describe("getTimeSplit", () => {
             expect(typeof result.minutes).toBe("number");
             expect(typeof result.seconds).toBe("number");
         });
-        describe("valid input", () => {
-            it("parses a standard time string correctly", () => {
-                expect(getTimeSplit("01:30:45")).toEqual({
-                    hours: 1,
-                    minutes: 30,
-                    seconds: 45,
-                });
-            });
-
-            it("parses midnight (00:00:00)", () => {
-                expect(getTimeSplit("00:00:00")).toEqual({
-                    hours: 0,
-                    minutes: 0,
-                    seconds: 0,
-                });
-            });
-
-            it("parses end of day (23:59:59)", () => {
-                expect(getTimeSplit("23:59:59")).toEqual({
-                    hours: 23,
-                    minutes: 59,
-                    seconds: 59,
-                });
-            });
-
-            it("parses zero-padded single-digit values", () => {
-                expect(getTimeSplit("09:05:03")).toEqual({
-                    hours: 9,
-                    minutes: 5,
-                    seconds: 3,
-                });
-            });
-
-            it("returns numeric (not string) values for each field", () => {
-                const result = getTimeSplit("12:34:56");
-                expect(typeof result.hours).toBe("number");
-                expect(typeof result.minutes).toBe("number");
-                expect(typeof result.seconds).toBe("number");
-            });
-        });
     });
 
     describe("invalid input", () => {
@@ -263,7 +223,7 @@ describe("timeSplitToSecs / secsToTimeSplit round-trip", () => {
 
     it.each([0, 45, 5445, 86399, 86400, 90000, 90061])(
         "preserves seconds modulo one day for %i",
-        (secs) => {
+        (secs: number) => {
             expect(timeSplitToSecs(secsToTimeSplit(secs))).toBe(
                 secs % (24 * 3600),
             );
