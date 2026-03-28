@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import { TimeSplit } from "../types/Time";
+
 import {
     SECS_PER_MIN,
     SECS_PER_HR,
@@ -68,6 +70,46 @@ describe("getTimeSplit", () => {
             expect(typeof result.minutes).toBe("number");
             expect(typeof result.seconds).toBe("number");
         });
+        describe("valid input", () => {
+            it("parses a standard time string correctly", () => {
+                expect(getTimeSplit("01:30:45")).toEqual({
+                    hours: 1,
+                    minutes: 30,
+                    seconds: 45,
+                });
+            });
+
+            it("parses midnight (00:00:00)", () => {
+                expect(getTimeSplit("00:00:00")).toEqual({
+                    hours: 0,
+                    minutes: 0,
+                    seconds: 0,
+                });
+            });
+
+            it("parses end of day (23:59:59)", () => {
+                expect(getTimeSplit("23:59:59")).toEqual({
+                    hours: 23,
+                    minutes: 59,
+                    seconds: 59,
+                });
+            });
+
+            it("parses zero-padded single-digit values", () => {
+                expect(getTimeSplit("09:05:03")).toEqual({
+                    hours: 9,
+                    minutes: 5,
+                    seconds: 3,
+                });
+            });
+
+            it("returns numeric (not string) values for each field", () => {
+                const result = getTimeSplit("12:34:56");
+                expect(typeof result.hours).toBe("number");
+                expect(typeof result.minutes).toBe("number");
+                expect(typeof result.seconds).toBe("number");
+            });
+        });
     });
 
     describe("invalid input", () => {
@@ -95,6 +137,17 @@ describe("getTimeSplit", () => {
             expect(() => getTimeSplit("01:xx:45")).toThrow(
                 "Invalid time format",
             );
+        });
+        it("throws on partially numeric segments", () => {
+            expect(() => getTimeSplit("01:30:45x")).toThrow(
+                "Invalid time format",
+            );
+            expect(() => getTimeSplit("01x:30:45")).toThrow(
+                "Invalid time format",
+            );
+        });
+        it("parses non-padded single-digit values", () => {
+            expect(() => getTimeSplit("1:2:3")).toThrow("Invalid time format");
         });
     });
 });
@@ -128,6 +181,11 @@ describe("timeSplitToSecs", () => {
     it("converts 23:59:59 to 86399 seconds", () => {
         expect(timeSplitToSecs({ hours: 23, minutes: 59, seconds: 59 })).toBe(
             86399,
+        );
+    });
+    it("handles hours greater than 23", () => {
+        expect(timeSplitToSecs({ hours: 25, minutes: 0, seconds: 0 })).toBe(
+            90000,
         );
     });
 });
@@ -199,7 +257,24 @@ describe("timeSplitToSecs / secsToTimeSplit round-trip", () => {
         { hours: 1, minutes: 30, seconds: 45 },
         { hours: 12, minutes: 0, seconds: 1 },
         { hours: 23, minutes: 59, seconds: 59 },
-    ])("round-trips %o without loss", (timeSplit) => {
+    ])("round-trips %o without loss", (timeSplit: TimeSplit) => {
         expect(secsToTimeSplit(timeSplitToSecs(timeSplit))).toEqual(timeSplit);
+    });
+
+    it.each([0, 45, 5445, 86399, 86400, 90000, 90061])(
+        "preserves seconds modulo one day for %i",
+        (secs) => {
+            expect(timeSplitToSecs(secsToTimeSplit(secs))).toBe(
+                secs % (24 * 3600),
+            );
+        },
+    );
+
+    it("round-trips with wrapping for values over 24 hours", () => {
+        const input = { hours: 25, minutes: 30, seconds: 45 };
+        const expectedAfterWrap = { hours: 1, minutes: 30, seconds: 45 };
+        expect(secsToTimeSplit(timeSplitToSecs(input))).toEqual(
+            expectedAfterWrap,
+        );
     });
 });

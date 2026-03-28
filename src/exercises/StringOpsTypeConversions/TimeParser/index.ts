@@ -5,18 +5,11 @@ import {
     SECS_PER_HR,
     secsToTimeSplit,
     timeSplitToSecs,
+    VALID_TIME_STRUCTURE_REGEX,
 } from "../../../utils/time";
 
 const SECS_PER_DAY = HRS_PER_DAY * SECS_PER_HR;
 const toTimeStr = (input: number): string => String(input).padStart(2, "0");
-
-// Valid time structure is one which has:
-// - Only digits and colons
-// - Hours must be two digits and can range from 00 to 23
-// - Minutes must have two digits and can range from 00 to 59
-// - Seconds must have two digits and can range from 00 to 59
-// Other time validation is performed elsewhere
-const VALID_TIME_STRUCTURE_REGEX = /^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/;
 
 /**
  * Converts a given TimeSplit object into a TimeSplitStr object, which represents the time as a string with hours, minutes, and seconds.
