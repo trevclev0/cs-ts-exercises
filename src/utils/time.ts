@@ -5,6 +5,14 @@ export const SECS_PER_HR = 60 * SECS_PER_MIN;
 export const MINS_PER_HR = 60;
 export const HRS_PER_DAY = 24;
 
+// Valid time structure is one which has:
+// - Only digits and colons
+// - Hours must be two digits and can range from 00 to 23
+// - Minutes must have two digits and can range from 00 to 59
+// - Seconds must have two digits and can range from 00 to 59
+// Other time validation is performed elsewhere
+export const VALID_TIME_STRUCTURE_REGEX = /^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/;
+
 const toTimeNum = (input: string): number => Number.parseInt(input, 10);
 
 /**
@@ -13,20 +21,16 @@ const toTimeNum = (input: string): number => Number.parseInt(input, 10);
  * @returns {TimeSplit} A TimeSplit object containing the hours, minutes, and seconds
  */
 export const getTimeSplit = (inputTime: string): TimeSplit => {
-    const parts = inputTime.split(":");
-
-    if (parts.length !== 3) {
+    if (!VALID_TIME_STRUCTURE_REGEX.test(inputTime)) {
         throw new Error("Invalid time format");
     }
+
+    const parts = inputTime.split(":");
 
     const [hoursString, minutesString, secondsString] = parts;
     const hours = toTimeNum(hoursString);
     const minutes = toTimeNum(minutesString);
     const seconds = toTimeNum(secondsString);
-
-    if ([hours, minutes, seconds].some((value) => Number.isNaN(value))) {
-        throw new Error("Invalid time format");
-    }
 
     return { hours, minutes, seconds };
 };
