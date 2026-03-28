@@ -106,7 +106,7 @@ describe("getTimeSplit", () => {
                 "Invalid time format",
             );
         });
-        it("parses non-padded single-digit values", () => {
+        it("throws on non-padded single-digit values", () => {
             expect(() => getTimeSplit("1:2:3")).toThrow("Invalid time format");
         });
     });
