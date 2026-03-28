@@ -10,6 +10,7 @@ const config = {
   reporters: ["html", "clear-text", "progress"],
   testRunner: "vitest",
   coverageAnalysis: "perTest",
+  checkers: ["typescript"],
   plugins: [
     "@stryker-mutator/vitest-runner",
     "@stryker-mutator/typescript-checker",
