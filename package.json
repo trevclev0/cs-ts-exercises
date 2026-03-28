@@ -33,6 +33,7 @@
   },
   "scripts": {
     "test": "vitest run",
+    "mutate": "stryker run",
     "test:coverage": "vitest run --coverage",
     "postinstall": "husky",
     "lint": "eslint"
