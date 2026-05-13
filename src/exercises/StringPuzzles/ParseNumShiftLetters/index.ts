@@ -19,5 +19,5 @@ const numStrPairRegex = /(?<![-.\d])(\d+)[\s\p{P}]+([a-zA-Z])/gu;
  * @returns The converted string
  */
 export default function solution(input: string): string {
-    return input.replace(numStrPairRegex, (_, num, char) => char + num);
+  return input.replace(numStrPairRegex, (_, num, char) => char + num);
 }

@@ -1,11 +1,11 @@
 export interface TimeSplit {
-    hours: number;
-    minutes: number;
-    seconds: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 }
 
 export interface TimeSplitStr {
-    hours: string;
-    minutes: string;
-    seconds: string;
+  hours: string;
+  minutes: string;
+  seconds: string;
 }
