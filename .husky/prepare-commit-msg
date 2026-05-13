@@ -5,5 +5,5 @@
 
 # Only launch Commitizen if a TTY is available (i.e., a real terminal)
 if [ -t 1 ]; then
-  exec < /dev/tty && yarn cz --hook || true
+  exec < /dev/tty && pnpm czg --hook || true
 fi
