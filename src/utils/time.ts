@@ -1,4 +1,4 @@
-import { TimeSplit } from "../types/Time";
+import type { TimeSplit } from "../types/Time";
 
 export const SECS_PER_MIN = 60;
 export const SECS_PER_HR = 60 * SECS_PER_MIN;
@@ -21,18 +21,18 @@ const toTimeNum = (input: string): number => Number.parseInt(input, 10);
  * @returns {TimeSplit} A TimeSplit object containing the hours, minutes, and seconds
  */
 export const getTimeSplit = (inputTime: string): TimeSplit => {
-    if (!VALID_TIME_STRUCTURE_REGEX.test(inputTime)) {
-        throw new Error("Invalid time format");
-    }
+  if (!VALID_TIME_STRUCTURE_REGEX.test(inputTime)) {
+    throw new Error("Invalid time format");
+  }
 
-    const parts = inputTime.split(":");
+  const parts = inputTime.split(":");
 
-    const [hoursString, minutesString, secondsString] = parts;
-    const hours = toTimeNum(hoursString);
-    const minutes = toTimeNum(minutesString);
-    const seconds = toTimeNum(secondsString);
+  const [hoursString, minutesString, secondsString] = parts;
+  const hours = toTimeNum(hoursString);
+  const minutes = toTimeNum(minutesString);
+  const seconds = toTimeNum(secondsString);
 
-    return { hours, minutes, seconds };
+  return { hours, minutes, seconds };
 };
 
 /**
@@ -41,8 +41,8 @@ export const getTimeSplit = (inputTime: string): TimeSplit => {
  * @returns The number of seconds represented by the TimeSplit object
  */
 export const timeSplitToSecs = (timeSplit: TimeSplit): number => {
-    const { hours, minutes, seconds } = timeSplit;
-    return hours * SECS_PER_HR + minutes * SECS_PER_MIN + seconds;
+  const { hours, minutes, seconds } = timeSplit;
+  return hours * SECS_PER_HR + minutes * SECS_PER_MIN + seconds;
 };
 
 /**
@@ -51,9 +51,9 @@ export const timeSplitToSecs = (timeSplit: TimeSplit): number => {
  * @returns {TimeSplit} A TimeSplit object representing the time
  */
 export const secsToTimeSplit = (input: number): TimeSplit => {
-    const hours = Math.floor(input / SECS_PER_HR) % HRS_PER_DAY;
-    const minutes = Math.floor((input % SECS_PER_HR) / SECS_PER_MIN);
-    const seconds = input % SECS_PER_MIN;
+  const hours = Math.floor(input / SECS_PER_HR) % HRS_PER_DAY;
+  const minutes = Math.floor((input % SECS_PER_HR) / SECS_PER_MIN);
+  const seconds = input % SECS_PER_MIN;
 
-    return { hours, minutes, seconds };
+  return { hours, minutes, seconds };
 };

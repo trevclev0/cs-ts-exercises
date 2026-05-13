@@ -1,35 +1,33 @@
-import { Customer } from "../../../types/Customer";
-import { Product } from "../../../types/Product";
-import { CartItemCollection } from "../CartItemCollection";
+import type { Customer } from "../../../types/Customer";
+import type { Product } from "../../../types/Product";
+import type { CartItemCollection } from "../CartItemCollection";
 
 export class LoyaltyPointsCalculator {
-    constructor(
-        private readonly customer: Customer,
-        private readonly items: CartItemCollection,
-    ) {
-        // This constructor does nothing
+  constructor(
+    private readonly customer: Customer,
+    private readonly items: CartItemCollection,
+  ) {
+    // This constructor does nothing
+  }
+
+  calculate(products: Product[], subtotal: number): number {
+    // Base points
+    let points = Math.floor(subtotal / 10);
+
+    // Bonus points for electronics
+    points += this.items.getAll().reduce((bonus, item) => {
+      const product = products.find((product) => product.id === item.productId);
+      if (product?.category === "electronics") {
+        return bonus + item.quantity * 5;
+      }
+      return bonus;
+    }, 0);
+
+    // VIP multiplier
+    if (this.customer.priceLevel === "vip") {
+      points *= 2;
     }
 
-    calculate(products: Product[], subtotal: number): number {
-        // Base points
-        let points = Math.floor(subtotal / 10);
-
-        // Bonus points for electronics
-        points += this.items.getAll().reduce((bonus, item) => {
-            const product = products.find(
-                (product) => product.id === item.productId,
-            );
-            if (product?.category === "electronics") {
-                return bonus + item.quantity * 5;
-            }
-            return bonus;
-        }, 0);
-
-        // VIP multiplier
-        if (this.customer.priceLevel === "vip") {
-            points *= 2;
-        }
-
-        return points;
-    }
+    return points;
+  }
 }
