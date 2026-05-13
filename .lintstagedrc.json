@@ -1,4 +1,0 @@
-{
-  "src/**/*.{ts,tsx}": "yarn vitest related --run",
-  "*": "yarn lint"
-}
