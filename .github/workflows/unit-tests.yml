@@ -6,7 +6,7 @@ on:
       - "src/**"
       - "vitest.config.ts"
       - "package.json"
-      - "yarn.lock"
+      - "pnpm-lock.yaml"
       - ".github/workflows/unit-tests.yml"
       - ".tool-versions"
   pull_request:
@@ -14,7 +14,7 @@ on:
       - "src/**"
       - "vitest.config.ts"
       - "package.json"
-      - "yarn.lock"
+      - "pnpm-lock.yaml"
       - ".github/workflows/unit-tests.yml"
       - ".tool-versions"
 
@@ -43,13 +43,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version-file: ".tool-versions"
-          cache: "yarn"
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install --immutable
 
       - name: Run unit tests with coverage
-        run: yarn test:coverage
+        run: pnpm test:coverage
 
       - name: Report coverage
         if: always()
