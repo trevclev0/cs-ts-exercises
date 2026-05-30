@@ -18,8 +18,9 @@ export class ShippingCalculator {
       return 0;
     }
 
+    const productMap = new Map(products.map((p) => [p.id, p]));
     const totalWeight = this.items.getAll().reduce((weight, item) => {
-      const product = products.find((product) => product.id === item.productId);
+      const product = productMap.get(item.productId);
       return weight + (product?.weight || 0) * item.quantity;
     }, 0);
 
