@@ -11,12 +11,13 @@ export class LoyaltyPointsCalculator {
   }
 
   calculate(products: Product[], subtotal: number): number {
+    const productMap = new Map(products.map((p) => [p.id, p]));
     // Base points
     let points = Math.floor(subtotal / 10);
 
     // Bonus points for electronics
     points += this.items.getAll().reduce((bonus, item) => {
-      const product = products.find((product) => product.id === item.productId);
+      const product = productMap.get(item.productId);
       if (product?.category === "electronics") {
         return bonus + item.quantity * 5;
       }
