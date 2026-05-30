@@ -17,12 +17,16 @@ function getCharFromNum(num: number): string {
 }
 
 function flipWord(word: string): string {
+  if (!word) {
+    return "";
+  }
+
   const num = Number(word);
-  const isString = Number.isNaN(Number(num));
+  const isString = Number.isNaN(num);
 
   if (isString) {
     return getNumFromChar(word);
-  } else {
-    return getCharFromNum(num);
   }
+
+  return getCharFromNum(num);
 }
