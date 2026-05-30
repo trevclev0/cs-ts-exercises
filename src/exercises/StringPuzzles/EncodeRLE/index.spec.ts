@@ -37,6 +37,29 @@ const encodeRLETests: EncodeRLETestTable[] = [
     input: "11111111112222222222aaaaaaaaaaa",
     expected: "110210a11",
   },
+  {
+    testName:
+      "encodes the last valid run when the string ends with non-alphanumeric characters",
+    input: "AABBB!!",
+    expected: "A2B3",
+  },
+  {
+    testName:
+      "correctly flushes the final character count when trailing spaces are present",
+    input: "a  bb  ",
+    expected: "a1b2",
+  },
+  {
+    testName: "encodes standard alphanumeric strings correctly",
+    input: "aabbbcc",
+    expected: "a2b3c2",
+  },
+  {
+    testName:
+      "returns an empty string if only non-alphanumeric characters are provided",
+    input: "!!!@@@###",
+    expected: "",
+  },
 ];
 
 describe("Encode RLE", () => {
