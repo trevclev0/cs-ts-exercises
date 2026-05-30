@@ -8,6 +8,11 @@ type PairsCounterTestTable = TestTableType<string, string>;
 
 const pairsCounterTests: PairsCounterTestTable[] = [
   {
+    testName: "empty string",
+    input: "",
+    expected: "",
+  },
+  {
     testName: "mixed pairs and singles",
     input: "aaabbabbababaca",
     expected: "aa1ab1ba1bb1ab2ac1a1",
@@ -25,6 +30,12 @@ const pairsCounterTests: PairsCounterTestTable[] = [
   { testName: "single pair", input: "ab", expected: "ab1" },
   { testName: "all pairs", input: "ccddaaeeff", expected: "cc1dd1aa1ee1ff1" },
   { testName: "three pair types", input: "eeffgg", expected: "ee1ff1gg1" },
+  {
+    testName:
+      "handles odd-length strings by counting the trailing single character as a pair",
+    input: "ababc",
+    expected: "ab2c1",
+  },
 ];
 
 describe("Character Pairs Counter", () => {
