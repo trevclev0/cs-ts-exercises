@@ -14,7 +14,9 @@ export default function consecutiveCharCounter(input: string): string[] {
       prevCharCount++;
     }
   }
-  result.push(`${prevChar}:${prevCharCount}`);
+  if (prevChar) {
+    result.push(`${prevChar}:${prevCharCount}`);
+  }
 
   return result;
 }
