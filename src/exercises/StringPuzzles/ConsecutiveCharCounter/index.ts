@@ -2,7 +2,7 @@ export default function consecutiveCharCounter(input: string): string[] {
   const result = [];
   let prevChar = "";
   let prevCharCount = 0;
-  for (const char of input.split("")) {
+  for (const char of input) {
     if (/[a-zA-Z0-9]/.test(char)) {
       if (prevChar !== char) {
         if (prevChar) {
