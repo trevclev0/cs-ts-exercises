@@ -8,6 +8,23 @@ type FlipCharNumsTestTable = TestTableType<string, string>;
 
 const flipCharNumTests: FlipCharNumsTestTable[] = [
   {
+    testName: "handles empty string gracefully",
+    input: "",
+    expected: "",
+  },
+  {
+    testName:
+      "handles consecutive dashes without converting empty strings to backticks",
+    input: "a--b",
+    expected: "1--2",
+  },
+  {
+    testName:
+      "converts numerical positions to their corresponding alphabetical characters",
+    input: "1-2-3",
+    expected: "a-b-c",
+  },
+  {
     testName: "digits to letters",
     input: "1-2-3-4-5",
     expected: "a-b-c-d-e",
