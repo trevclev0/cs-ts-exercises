@@ -1,4 +1,8 @@
 export default function couplesTraverse(numbers: number[]): number[] {
+  if (numbers.length === 0) {
+    return [];
+  }
+
   const result: number[] = [];
   const mid: number = Math.floor(numbers.length / 2);
   let left: number = mid - 1;
@@ -6,14 +10,19 @@ export default function couplesTraverse(numbers: number[]): number[] {
 
   result.push(numbers[mid]);
 
-  while (left >= 0 && right < numbers.length) {
-    if (numbers[left - 1] !== undefined) {
-      result.push(numbers[left - 1]);
+  while (left >= 0 || right < numbers.length) {
+    if (left >= 0) {
+      if (left - 1 >= 0) {
+        result.push(numbers[left - 1]);
+      }
+      result.push(numbers[left]);
     }
-    result.push(numbers[left]);
-    result.push(numbers[right]);
-    if (numbers[right + 1] !== undefined) {
-      result.push(numbers[right + 1]);
+
+    if (right < numbers.length) {
+      result.push(numbers[right]);
+      if (right + 1 < numbers.length) {
+        result.push(numbers[right + 1]);
+      }
     }
     left -= 2;
     right += 2;
