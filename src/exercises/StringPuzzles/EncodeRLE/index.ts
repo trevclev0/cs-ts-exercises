@@ -1,9 +1,8 @@
 export default function encodeRLE(input: string): string {
-  const lastIndex = input.length - 1;
   let result = "";
   let prevChar = "";
   let prevCharCount = 0;
-  for (const [index, char] of input.split("").entries()) {
+  for (const char of input) {
     if (/[a-zA-Z0-9]/.test(char)) {
       if (prevChar === char) {
         prevCharCount++;
@@ -14,10 +13,10 @@ export default function encodeRLE(input: string): string {
         prevCharCount = 1;
         prevChar = char;
       }
-      if (lastIndex === index) {
-        result += char + prevCharCount;
-      }
     }
+  }
+  if (prevChar) {
+    result += prevChar + prevCharCount;
   }
 
   return result;
