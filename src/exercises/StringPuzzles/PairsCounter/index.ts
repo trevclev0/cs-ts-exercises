@@ -13,7 +13,9 @@ export default function pairsCounter(input: string): string {
     }
     prevCharPair = currCharPair;
   }
-  result += prevCharPair + currPairCount;
+  if (prevCharPair) {
+    result += prevCharPair + currPairCount;
+  }
 
   return result;
 }
