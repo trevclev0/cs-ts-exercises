@@ -23,6 +23,10 @@ export class CartItemCollection {
    */
 
   add(productId: string, quantity: number): void {
+    if (quantity <= 0) {
+      throw new Error("Quantity must be greater than zero");
+    }
+
     const currentItem = this.items.get(productId);
     if (currentItem) {
       currentItem.quantity += quantity;
