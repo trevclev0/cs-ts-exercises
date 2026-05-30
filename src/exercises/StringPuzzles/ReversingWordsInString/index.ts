@@ -1,7 +1,10 @@
 export default function reverseWords(input: string): string {
-  const words: string[] = input.trim().replace(/\s+/g, " ").split(" ");
+  const normalizedInput = input.trim().replace(/\s+/g, " ");
+  const words: string[] = normalizedInput.length
+    ? normalizedInput.split(" ")
+    : [];
 
-  if (input.length < 1 || words.length > 100) {
+  if (normalizedInput.length < 1 || normalizedInput.length > 100) {
     throw new Error("Invalid input length");
   }
 
