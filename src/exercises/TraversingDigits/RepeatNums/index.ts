@@ -1,16 +1,15 @@
 export default function solution(number: number): number {
   let result = 0;
-  let num: number = number;
-  let numLength = 1;
-  let pot = 0;
+  let multiplier = 1;
+  let num = number;
   do {
-    const digit: number = num % 10;
-    num = Math.floor(num / 10);
-    for (let i = 0; i < 2; i++, numLength++) {
-      result += digit;
-      pot = 10 ** numLength;
-      result = Math.floor((result / 10 + Number.EPSILON) * pot) / pot;
+    const digit = num % 10;
+    for (let i = 0; i < 2; i++) {
+      result += digit * multiplier;
+      multiplier *= 10;
     }
+    num = Math.floor(num / 10);
   } while (num > 0);
-  return result * pot;
+
+  return result;
 }
