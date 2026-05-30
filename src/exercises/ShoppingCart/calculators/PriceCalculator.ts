@@ -28,8 +28,9 @@ export class PriceCalculator {
   }
 
   calculateSubtotal(products: Product[]): number {
+    const productMap = new Map(products.map((p) => [p.id, p]));
     return this.items.getAll().reduce((total, item) => {
-      const product = products.find((product) => product.id === item.productId);
+      const product = productMap.get(item.productId);
       if (product) {
         return total + this.calculateItemPrice(product) * item.quantity;
       }
