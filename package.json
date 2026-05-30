@@ -23,7 +23,7 @@
     "vitest": "^4.1.2"
   },
   "scripts": {
-    "test": "vitest run",
+    "test": "vitest",
     "mutate": "stryker run",
     "test:coverage": "vitest run --coverage",
     "prepare": "husky",
