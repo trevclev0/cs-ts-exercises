@@ -1,5 +1,5 @@
 export default function consecutiveCharCounter(input: string): string[] {
-  const result = [];
+  const result: string[] = [];
   let prevChar = "";
   let prevCharCount = 0;
   for (const char of input) {
