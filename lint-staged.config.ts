@@ -1,9 +1,9 @@
 const config = {
   "src/**/*.{ts,tsx}": [
-    "pnpm check --no-errors-on-unmatched",
-    "pnpm test related --run",
+    "bun check --no-errors-on-unmatched",
+    "bun test related --run",
   ],
-  "*.{json,jsonc}": ["pnpm biome check --write --no-errors-on-unmatched"],
+  "*.{json,jsonc}": ["bun biome check --write --no-errors-on-unmatched"],
 };
 
 export default config;
