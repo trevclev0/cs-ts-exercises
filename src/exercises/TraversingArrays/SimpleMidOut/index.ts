@@ -11,7 +11,7 @@ export default function iterateMiddleToEnd(numbers: number[]): number[] {
     left = mid - 1;
     right = mid;
   }
-  while (left >= 0 && right < numbers.length) {
+  while (left >= 0) {
     newOrder.push(numbers[left--]);
     newOrder.push(numbers[right++]);
   }
