@@ -3,4 +3,3 @@ min_version = "2026.5.16"
 [tools]
 bun = "latest"
 node = "24.15.0"
-pnpm = "11.5.0"
