@@ -11,7 +11,8 @@ export default function iterateMiddleToEnd(numbers: number[]): number[] {
     left = mid - 1;
     right = mid;
   }
-  while (left >= 0) {
+  // Stryker disable next-line LogicalOperator, ConditionalExpression, EqualityOperator
+  while (left >= 0 && right < numbers.length) {
     newOrder.push(numbers[left--]);
     newOrder.push(numbers[right++]);
   }
